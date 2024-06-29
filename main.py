@@ -1,8 +1,7 @@
 # TRABALHO PRATICO 1 - TRIANGULACAO DE POLIGONOS
 import numpy as np
 import sys
-from earclipping import ear_clipping
-from plots import plot_polygon
+from polygon import Polygon
 
 def read_polygon(file):
     vertices = []
@@ -27,7 +26,6 @@ if __name__ == "__main__":
         polygon = read_polygon(name)
         polygon = np.append(polygon, [polygon[0]], axis=0)
 
-        triangles, frames = ear_clipping(polygon)
-
-        plot_polygon(polygon,triangles, frames)
+        polygon = Polygon(polygon)
+        polygon.plot_polygon()
     
