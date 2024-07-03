@@ -6,7 +6,7 @@ from polygon import Polygon
 def read_polygon(file):
     vertices = []
     with open(file, 'r') as f:
-        content = f.read().split(' ')
+        content = f.read().replace('\n',' ').split(' ')
         for v in content[1:]:
             v = v.split('/')
             vertices += [float(v[0])/int(v[1])] if len(v) > 1 else []
@@ -24,7 +24,7 @@ def read_polygon(file):
 if __name__ == "__main__":
     for name in sys.argv[1:]:
         polygon = read_polygon(name)
-        polygon = np.append(polygon, [polygon[0]], axis=0)
+        #polygon = np.append(polygon, [polygon[0]], axis=0)
 
         polygon = Polygon(polygon)
         polygon.plot_polygon()

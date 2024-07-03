@@ -1,15 +1,25 @@
 import numpy as np
-import sys
+from tqdm import tqdm
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
 def is_point_inside_triangle(p, p0, p1, p2):
-        def sign(p1, p2, p3):
-            return (p1[0] - p3[0]) * (p2[1] - p3[1]) - (p2[0] - p3[0]) * (p1[1] - p3[1])
-        b1 = sign(p, p0, p1) <= 0.0
-        b2 = sign(p, p1, p2) <= 0.0
-        b3 = sign(p, p2, p0) <= 0.0
-        return ((b1 == b2) and (b2 == b3))
+    def sign(p1, p2, p3):
+        return (p1[0] - p3[0]) * (p2[1] - p3[1]) - (p2[0] - p3[0]) * (p1[1] - p3[1])
+
+    # Checa
+    b1 = sign(p, p0, p1) >= 0.0
+    b2 = sign(p, p1, p2) >= 0.0
+    b3 = sign(p, p2, p0) >= 0.0
+
+    # Check if the point is on the same side or exactly on the edge in the opposite direction
+    b1_opposite = sign(p, p0, p1) <= 0.0
+    b2_opposite = sign(p, p1, p2) <= 0.0
+    b3_opposite = sign(p, p2, p0) <= 0.0
+
+    # The point is inside or on the triangle if all checks are true in either direction
+    return ((b1 and b2 and b3) or (b1_opposite and b2_opposite and b3_opposite))
+
     
 def is_turn_left(p0, p1, p2):
     return (p1[0] - p0[0]) * (p2[1] - p0[1]) - (p2[0] - p0[0]) * (p1[1] - p0[1]) > 0
@@ -49,26 +59,35 @@ class Polygon:
             p1 = polygon[i]
             p2 = polygon[(i+1)%len(polygon)]
             for j in range(len(polygon)):
-                if j == i or j == i-1:
+                if j == i or j == i-1 or j == (i+1)%len(polygon):
                     continue
                 if is_point_inside_triangle(polygon[j], p0, p1, p2):
+                    # print(f"Point {polygon[j]} is inside triangle {p0}, {p1}, {p2}")
                     return False
             return True
         
         def remove_ear(polygon, i):
             return np.delete(polygon, i, axis=0)
         
-
+        self.vertices = polygon
         triangles = []
         frames = []
-        while(len(polygon) > 3):
+        initial_length = len(polygon)
+
+        for _ in tqdm(range(initial_length - 3), desc="Processing Polygon"):
             for i in range(len(polygon)):
                 if is_ear(polygon, i):
                     triangles.append([polygon[i-1], polygon[i], polygon[(i+1)%len(polygon)], polygon[i-1]])
-                    frames += [(polygon[:,0], polygon[:,1])]
+                    aux_polygon = np.append(polygon, [polygon[0]], axis=0)
+                    frames.append((aux_polygon[:,0], aux_polygon[:,1]))
                     polygon = remove_ear(polygon, i)
                     break
+            else:
+                print(polygon)
         
+        triangles.append([polygon[0], polygon[1], polygon[2], polygon[0]])
+        aux_polygon = np.append(polygon, [polygon[0]], axis=0)
+        frames.append((aux_polygon[:,0], aux_polygon[:,1]))
 
         self.triangles = triangles
         self.frames = frames
@@ -76,11 +95,6 @@ class Polygon:
     def plot_polygon(self):
         """
         Plot the polygon and the triangles.
-        
-        Parameters:
-        polygon (numpy.ndarray): An array of shape (n, 2) where n is the number of vertices of the polygon.
-        triangles (list): A list of triangles, each triangle is a list of 4 points (the last point is the same as the first).
-        frames (list): A list of "frames", each frame is a tuple of two numpy arrays of shape (n,) representing the x and y coordinates of the polygon, less the points that have been removed.
         """
         fig = make_subplots(rows=1, cols=2, subplot_titles=("Polygon", "Current Triangle"))
 
@@ -93,7 +107,7 @@ class Polygon:
             y = [y for _, y in self.triangles[i]]
             fig.add_trace(go.Scatter(x=x,
                         y=y,mode="lines+markers", name=f"Triangulo - {i+1}",
-                        marker=dict(color="blue"), line=dict(color="black", width=0.3)), row=1, col=2)
+                        marker=dict(color="blue"), line=dict(color="black", width=0.3), fill="toself", fillcolor='lightgray'), row=1, col=2)
 
         # Slider
         steps = []
