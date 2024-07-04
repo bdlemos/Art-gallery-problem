@@ -101,27 +101,35 @@ class Polygon:
 
         # Set up the frames for animation
         for i, frame in enumerate(self.frames):
+            # Plot the polygon less the ears in plot 1
             fig.add_trace(go.Scatter(x=frame[0], y=frame[1], mode="lines+markers", name=f"Iteraçao - {i+1}", 
                                     marker=dict(color="blue"), line=dict(color="black", width=0.3)), row=1, col=1)
             x = [x for x, _ in self.triangles[i]]
             y = [y for _, y in self.triangles[i]]
+            # Fill the current triangle in plot 1
+            fig.add_trace(go.Scatter(x=x,
+                        y=y,mode="lines+markers", name=f"Triangulo - {i+1}",
+                        marker=dict(color="Red"), line=dict(color="black", width=0.3), fill="toself", fillcolor='lightblue'), row=1, col=1)
+            
+            # Plot the polygon formed by all the triangles found until now
             fig.add_trace(go.Scatter(x=x,
                         y=y,mode="lines+markers", name=f"Triangulo - {i+1}",
                         marker=dict(color="blue"), line=dict(color="black", width=0.3), fill="toself", fillcolor='lightgray'), row=1, col=2)
 
         # Slider
         steps = []
-        for i in range(0,len(fig.data),2):
+        for i in range(0,len(fig.data),3):
             step = dict(
                 method="update",
                 args=[{"visible": [False] * len(fig.data)},
-                    {"title": f"Frame {(i)/2}"}],
+                    {"title": f"Frame {(i)/3}"}],
             )
 
             # Update the visible traces
             # Only the last in plot 1 and all traces in plot 2
             step["args"][0]["visible"][i] = True
-            for j in range(1,i+2,2):
+            step["args"][0]["visible"][i+1] = True
+            for j in range(2,i+3,3):
                 step["args"][0]["visible"][j] = True
             steps.append(step)
 
