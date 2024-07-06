@@ -28,7 +28,7 @@ def is_turn_left(p0, p1, p2):
 class Polygon:
     def __init__(self, vertices):
         """
-        Initialize the Polygon object.
+        Initialize the Polygon object and triangulate the given polygon.
         
         Parameters:
         vertices (numpy.ndarray): An array of shape (n, 2) where n is the number of vertices of the polygon.
@@ -106,10 +106,10 @@ class Polygon:
 
     def plot_polygon(self, points):
         """
-        Plot the polygon and the triangles.
+        Plot the stored polygon and the triangles.
         """
         fig = make_subplots(rows=1, cols=2, subplot_titles=("Polygon", "Current Triangle"))
-        colors = ['pink', 'orange', 'magenta', 'yellow', 'purple', 'orange', 'pink', 'cyan', 'magenta', 'black', 'gray']
+        colors = ['pink', 'orange', 'magenta', 'yellow', 'purple', 'cyan', 'black', 'gray']
         colors = random.sample(colors, 4)
 
 
@@ -197,3 +197,4 @@ class Polygon:
 
         # Show the figure
         fig.show()
+        fig.write_html("triangulacao.html")
