@@ -2,6 +2,7 @@ import numpy as np
 from tqdm import tqdm
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
+import random
 
 def is_point_inside_triangle(p, p0, p1, p2):
     def sign(p1, p2, p3):
@@ -37,6 +38,17 @@ class Polygon:
         self.frames = []
         self.fig = make_subplots(rows=1, cols=2, subplot_titles=("Polygon", "Current Triangle"))
         self.ear_clipping(vertices)
+
+    def get_triangles(self):
+        return self.triangles
+
+    def get_vertices(self):
+        return self.vertices
+    def point_index(self, point):
+        for i in range(len(self.vertices)):
+            if self.vertices[i][0] == point[0] and self.vertices[i][1] == point[1]:
+                return i
+        return -1
 
     
     def ear_clipping(self,polygon):
@@ -92,29 +104,35 @@ class Polygon:
         self.triangles = triangles
         self.frames = frames
 
-    def plot_polygon(self):
+    def plot_polygon(self, points):
         """
         Plot the polygon and the triangles.
         """
         fig = make_subplots(rows=1, cols=2, subplot_titles=("Polygon", "Current Triangle"))
+        colors = ['pink', 'orange', 'magenta', 'yellow', 'purple', 'orange', 'pink', 'cyan', 'magenta', 'black', 'gray']
+        colors = random.sample(colors, 4)
 
 
         # Set up the frames for animation
         for i, frame in enumerate(self.frames):
             # Plot the polygon less the ears in plot 1
-            fig.add_trace(go.Scatter(x=frame[0], y=frame[1], mode="lines+markers", name=f"Iteraçao - {i+1}", 
+            fig.add_trace(go.Scatter(x=frame[0], y=frame[1], mode="lines+markers", name=f"Iteraçao - {i+1}",
                                     marker=dict(color="blue"), line=dict(color="black", width=0.3)), row=1, col=1)
             x = [x for x, _ in self.triangles[i]]
             y = [y for _, y in self.triangles[i]]
+            c  =[]
+            for point in self.triangles[i]:
+                index = self.point_index(point)
+                c.append(colors[points[index][1]])
             # Fill the current triangle in plot 1
             fig.add_trace(go.Scatter(x=x,
                         y=y,mode="lines+markers", name=f"Triangulo - {i+1}",
-                        marker=dict(color="Red"), line=dict(color="black", width=0.3), fill="toself", fillcolor='lightblue'), row=1, col=1)
-            
+                        marker=dict(color='red'), line=dict(color="black", width=0.3), fill="toself", fillcolor='lightblue'), row=1, col=1)
+
             # Plot the polygon formed by all the triangles found until now
             fig.add_trace(go.Scatter(x=x,
                         y=y,mode="lines+markers", name=f"Triangulo - {i+1}",
-                        marker=dict(color="blue"), line=dict(color="black", width=0.3), fill="toself", fillcolor='lightgray'), row=1, col=2)
+                        marker=dict(color=c), line=dict(color="black", width=0.3), fill="toself", fillcolor='lightgray'), row=1, col=2)
 
         # Slider
         steps = []
@@ -143,21 +161,6 @@ class Polygon:
             yaxis2=dict(range=[min(self.vertices[:, 1]) - 5, max(self.vertices[:, 1]) + 5]),
             updatemenus=[{
                 "buttons": [
-                    {
-                        "args": [None, {"frame": {"duration": 300, "redraw": False}, "fromcurrent": True, "transition": {"duration": 5}}],
-                        "label": "Play",
-                        "method": "animate"
-                    },
-                    {
-                        "args": [[None], {"frame": {"duration": 0, "redraw": False}, "mode": "immediate", "transition": {"duration": 0}}],
-                        "label": "Pause",
-                        "method": "animate"
-                    },
-                    {
-                        "args": [None, {"frame": {"duration": 300, "redraw": False}, "fromcurrent": True, "direction": "reverse", "transition": {"duration": 5}}],
-                        "label": "Retrocede",
-                        "method": "animate"
-                    },
                     {
                         "args": [{"visible": [True, True]}],  # Both traces will be visible
                         "label": "Show All",
