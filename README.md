@@ -32,7 +32,7 @@ coordenadas (x,y) desse ponto.
 
 Formalmente, nossa entrada é uma lista de N pontos, onde:
 
-![equation](https://latex.codecogs.com/svg.image?&space;Point_{i} = (x_{i} , y_{i}))
+![equation](https://latex.codecogs.com/svg.image?&space;Point_{i}=(x_{i},y_{i}))
 
 # Requisitos
 
