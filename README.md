@@ -18,7 +18,7 @@ Por fim, queremos um limite superior para a instalação de câmeras, em uma ár
 
 Para resolver o problema, vamos utilizar algoritmos da área de geometria computacional. Observe, então, que nossa entrada para o algoritmo será um polígono 2D. Cada vértice desse polígono será exatamente um ponto em um espaço de 2 dimensões, definido com as coordenadas (x,y) desse ponto.
 
-Formalmente, nossa entrada é uma lista de N pontos, com P_{i} = (x_{i}, y_{i})
+Formalmente, nossa entrada é uma lista de N pontos, com Pi = (xi, yi).
 
 # Requisitos
 
