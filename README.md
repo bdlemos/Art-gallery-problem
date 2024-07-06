@@ -18,7 +18,7 @@ Então, será que não seria possível vigiar todo o espaço desse polígono uti
 
 Por fim, queremos um limite superior para a instalação de câmeras, em uma área delimitada por um polígono 2D.
 
-# Proposta de Solução do Problema
+## Proposta de Solução do Problema
 
 Para resolver o problema, vamos utilizar algoritmos da área de geometria computacional. Observe, então, que nossa entrada para o algoritmo será um polígono 2D. Cada vértice desse polígono será exatamente um ponto em um espaço de 2 dimensões, definido com as coordenadas (x,y) desse ponto.
 
