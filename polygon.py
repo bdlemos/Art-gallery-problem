@@ -116,7 +116,7 @@ class Polygon:
         # Set up the frames for animation
         for i, frame in enumerate(self.frames):
             # Plot the polygon less the ears in plot 1
-            fig.add_trace(go.Scatter(x=frame[0], y=frame[1], mode="lines+markers", name=f"Iteraçao - {i+1}",
+            fig.add_trace(go.Scatter(x=frame[0], y=frame[1],visible=False, mode="lines+markers", name=f"Iteraçao - {i+1}",
                                     marker=dict(color="blue"), line=dict(color="black", width=0.3)), row=1, col=1)
             x = [x for x, _ in self.triangles[i]]
             y = [y for _, y in self.triangles[i]]
@@ -125,12 +125,12 @@ class Polygon:
                 index = self.point_index(point)
                 c.append(colors[points[index][1]])
             # Fill the current triangle in plot 1
-            fig.add_trace(go.Scatter(x=x,
+            fig.add_trace(go.Scatter(x=x, visible=False,
                         y=y,mode="lines+markers", name=f"Triangulo - {i+1}",
                         marker=dict(color='red'), line=dict(color="black", width=0.3), fill="toself", fillcolor='lightblue'), row=1, col=1)
 
             # Plot the polygon formed by all the triangles found until now
-            fig.add_trace(go.Scatter(x=x,
+            fig.add_trace(go.Scatter(x=x, visible=False,
                         y=y,mode="lines+markers", name=f"Triangulo - {i+1}",
                         marker=dict(color=c), line=dict(color="black", width=0.3), fill="toself", fillcolor='lightgray'), row=1, col=2)
 
@@ -151,7 +151,10 @@ class Polygon:
                 step["args"][0]["visible"][j] = True
             steps.append(step)
 
-
+        # making the all button
+        result = [a or b for a, b in zip(steps[-1]["args"][0]["visible"], [True]+[False]*len(fig.data))]
+        result[-2] = False
+        result[-3] = False
         # Add layout with buttons and sliders
         fig.update_layout(
             title_text="Triangulaçao de Poligonos",
@@ -162,7 +165,7 @@ class Polygon:
             updatemenus=[{
                 "buttons": [
                     {
-                        "args": [{"visible": [True, True]}],  # Both traces will be visible
+                        "args": [{"visible": result}],  # Both traces will be visible
                         "label": "Show All",
                         "method": "update"
                     }
@@ -194,6 +197,9 @@ class Polygon:
                 "steps": steps
             }]
         )
+        fig.data[0].visible = True
+        fig.data[1].visible = True
+        fig.data[2].visible = True
 
         # Show the figure
         fig.show()
