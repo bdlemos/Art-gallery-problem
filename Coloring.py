@@ -20,6 +20,7 @@ class Coloring:
     self.vertex_list = polygon.get_vertices()
     self.dual_graph_vertex = [[i,0] for i in range(len(self.triangles))]
     self.dual_graph_adj_list = [[] for i in range(len(self.triangles))]
+    self.counter = 0
     for i in range(len(self.triangles)):
       for j in range(i, len(self.triangles)):
         if i == j:
@@ -56,7 +57,8 @@ class Coloring:
     return 0
 
   def DFS_procedure(self, v_u):
-    v_u[1] = 1 #triangulo v_u visitado
+    self.counter += 1
+    v_u[1] = self.counter #triangulo v_u visitado
 
     triangulo = self.triangles[v_u[0]]
     colors = [1, 2, 3]
