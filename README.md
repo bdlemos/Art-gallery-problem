@@ -50,7 +50,7 @@ Esse algoritmo busca, de forma iterativa, triangular o polígono e remover esses
 ### Implementação
 
 Exemplo de resultado da triangulação executada no polígono de exemplo.
-<div>
+<div align="center">
   <img src="https://github.com/bdlemos/Art-gallery-problem/assets/117868879/3bb1cb19-1b8a-49f4-8e2c-66e71f25f588"/>
 </div>
 <p align="center">Figura 2: Resultado da execução do Algoritmo da Poda de Orelhas na Figura 1.
