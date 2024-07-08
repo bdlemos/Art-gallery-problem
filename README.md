@@ -10,13 +10,11 @@ Outro objetivo deste repositório é apresentar esse problema clássico para alu
 
 O problema da Galeria de Artes tem uma motivação simples: queremos posicionar câmeras em uma galeria (de artes!), de modo que as câmeras não tenham pontos cegos, conseguindo vigiar todo o espaço da nossa galeria. As câmeras funcionam normalmente, tendo uma rotação em 360°, se necessário, para vigiar aquele espaço. Observe que aqui chamamos de 'galeria', mas esse problema tem  aplicação em qualquer tipo de espaço que se deseja instalar câmeras e vigiar, como bancos, bibliotecas, etc.
 
-Considere também que não estamos trabalhando com qualquer espaço: vamos utilizar as plantas dessa construção, e considerar que essa planta é referente à uma área aberta, ou seja, apenas os contornos que delimitam aquele espaço serão as informações que teremos para resolver esse problema de instalar as câmeras. Além disso, queremos instalar as câmeras não em qualquer lugar, mas apenas nas **paredes!**
+Considere também que não estamos trabalhando com qualquer espaço: apesar da galeria ser tridimensional, é possível projetá-la no plano, e trabalhar com o polígono simples formado. Além disso, queremos instalar as câmeras preferencialmente nas paredes.
 
-Observe que, a partir disso, temos a possibilidade de interpretar o espaço em que será instalado as câmeras como um polígono convexo 2-D. A primeira coisa que vem na nossa mente para tentar resolver o problema é: Porque não instalamos uma câmera em cada **vértice** do nosso polígono? Com certeza, essa seria uma solução, mas observe que ela é cara. Se o polígono tem N vértices, e N é um número grande, sairia bem caro utilizar N câmeras de qualidade para vigiar esse espaço.
+A primeira coisa que vem na nossa mente para tentar resolver o problema é: Porque não instalamos uma câmera em cada **vértice** do nosso polígono? Com certeza, essa seria uma solução, mas observe que ela é cara. Se o polígono tem N vértices, e N é um número grande, sairia bem caro utilizar N câmeras de qualidade para vigiar esse espaço.
 
-Então, será que não seria possível vigiar todo o espaço desse polígono utilizando menos de N câmeras? e a resposta é sim!  Exatamente esse é o *Problema da Galeria de Artes!*
-
-Por fim, queremos um limite superior para a instalação de câmeras, em uma área delimitada por um polígono 2D.
+Então, será que não seria possível vigiar todo o espaço desse polígono utilizando menos de N câmeras? e a resposta é sim! Exatamente isso que buscamos! Apesar do valor ótimo de câmeras ser um problema difícil, temos como objetivo encontrar um limite superior para a instalação de câmeras, que seja adequada para qualquer problema, mesmo que não seja ótima, já trazendo alguma economia.
 
 ## Proposta de Solução do Problema
 
@@ -29,9 +27,9 @@ Para facilitar, o polígono abaixo será utilizado para ilustrar as etapas na so
 </div> 
 <p align="center">Figura 1: Polígono Exemplar
 
-O primeiro objetivo é triangular esse polígono, pois, a partir desse polígono triangulado, basta decidir os vértices de cada triângulo em que se deseja colocar uma câmera. Para realizar essa etapa, será utilizado o **Algoritmo da Poda de Orelhas** ou **Ear Clipping Algorithm**.
+Observe que o problema de definir as câmeras é trivialmente resolvido para um triângulo, bastando colocar uma única câmera em qualquer vértice. A partir dessa informação, nosso objetivo principal passa ser dividir nosso polígono principal em triângulos. Formalmente, o problema consiste em decompor esse polígono em triângulos, usando um conjunto máximo de diagonais disjuntas (que não se interceptam). Além disso, vamos definir que uma diagonal é necessariamente um segmento de reta que conecta 2 vértices e se encontra estritamente dentro do polígono. Para realizar essa etapa, será utilizado o **Algoritmo da Poda de Orelhas** ou **Ear Clipping Algorithm**.
 
-O segundo objetivo é exatamente encontrar quais vértices desse triângulo serão selecionados, utilizando um algoritmo de **3-Coloração**, com base no grafo dual gerado a partir do polígono triangulado. Dessa forma, estaremos selecionando exatamente a quantidade de câmeras que serão necessárias para vigiar todo o espaço, onde cada câmera vigia um triângulo do polígono. A parte interessante dessa etapa é observar que é possível realizar a 3-Coloração em tempo polinomial para esse caso, que será mostrado posteriormente.
+O segundo objetivo é exatamente encontrar quais vértices desse triângulo serão selecionados, utilizando um algoritmo de **3-Coloração**, com base no grafo dual gerado a partir do polígono triangulado. O grafo dual desse polígono é um grafo onde todas as **faces** desse polígono, isto é, todos os triângulos se tornam **vértices** e as **arestas** existem apenas entre 2 faces (que no dual se tornam vértices!) que tem um **lado em comum**. Após realizar a coloração nos vértices do nosso polígono original, a partir do grafo dual, estaremos selecionando exatamente a quantidade de câmeras que serão necessárias para vigiar todo o espaço, onde cada câmera vigia um triângulo do polígono. A parte interessante dessa etapa é observar que é possível realizar a 3-Coloração em tempo polinomial, aproveitando de algumas propriedades particulares do problema.
 
 Esses algoritmos serão explicados na sessão seguinte =).
 
@@ -41,7 +39,7 @@ Nessa seção, ilustraremos como é desenvolvida a solução do algoritmo que re
 
 ## Triangulação através do Algoritmo da Poda de Orelhas
 
-O Algoritmo da Poda de Orelhas é utilizado inicialmente com o objetivo de triangular o polígono em questão. A critério de exemplo, iremos sempre nos referir ao polígono da seção anterior.
+O Algoritmo da Poda de Orelhas é utilizado inicialmente com o objetivo de triangular o polígono em questão. A critério de exemplo, iremos sempre nos referir ao polígono da seção anterior. Além disso, compreendemos que é satisfatório clarificar que existe um teorema que afirma que todo polígono simples admite triângulação, bem como tem exatamente n-2 triângulos, sendo n o número de vértices do polígono. A demonstração fica a cargo do leitor. A importância desse teorema para nós? Podemos concluir diretamente, então, que uma galeria de artes pode ser vigiada por n-2 câmeras, basta colocar uma em cada triângulo.
 
 ### Algoritmo
 
