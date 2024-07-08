@@ -24,7 +24,8 @@ Para resolver o problema, vamos utilizar algoritmos da área de geometria comput
 
 Para facilitar, o polígono abaixo será utilizado para ilustrar as etapas na solução do problema, guiando o leitor e facilitando a visualização.
 
-![image](https://github.com/bdlemos/Art-gallery-problem/assets/117868879/860ee872-d15e-4e1a-a304-8a9f11525016)
+<p align="center">![image](https://github.com/bdlemos/Art-gallery-problem/assets/117868879/860ee872-d15e-4e1a-a304-8a9f11525016)
+<p align="center">Figura 1: Polígono Exemplar
 
 O primeiro objetivo é triangular esse polígono, pois, a partir desse polígono triangulado, basta decidir os vértices de cada triângulo em que se deseja colocar uma câmera. Para realizar essa etapa, será utilizado o **Algoritmo da Poda de Orelhas** ou **Ear Clipping Algorithm**.
 
@@ -34,9 +35,17 @@ Esses algoritmos serão explicados na sessão seguinte =).
 
 # Metodologia e Solução
 
-Nessa seção, ilustraremos como é desenvolvida a solução do algoritmo que resolve o problema abordado anteriormente. A abordagem está dividida em 2 etapas, uma que envolve a triangulação do polígono e outra que envolve a coloração, que define o posicionamento e quantidade de câmeras
+Nessa seção, ilustraremos como é desenvolvida a solução do algoritmo que resolve o problema abordado anteriormente. A abordagem está dividida em 2 etapas, uma que envolve a triangulação do polígono e outra que utiliza da busca em largura para realizar uma 3-coloração desse grafo inteligentemente em tempo polinomial, definindo o posicionamento das câmeras na galeria.
 
 ## Triangulação através do Algoritmo da Poda de Orelhas
+
+O Algoritmo da Poda de Orelhas é utilizado inicialmente com o objetivo de triangular o polígono em questão. A critério de exemplo, iremos sempre nos referir ao polígono da seção anterior.
+
+### Funcionamento
+
+Esse algoritmo busca, de forma iterativa, triangular o polígono e remover esses triângulos, repetindo a execução para os pontos restantes do polígono. 
+
+### Implementação
 
 Exemplo de resultado da triangulação executada no polígono de exemplo.
 ![image](https://github.com/bdlemos/Art-gallery-problem/assets/117868879/3bb1cb19-1b8a-49f4-8e2c-66e71f25f588)
