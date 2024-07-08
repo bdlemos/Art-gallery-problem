@@ -37,7 +37,7 @@ Esses algoritmos serão explicados na sessão seguinte =).
 
 # Metodologia e Solução
 
-Nessa seção, ilustraremos como é desenvolvida a solução do algoritmo que resolve o problema abordado anteriormente. A abordagem está dividida em 2 etapas, uma que envolve a triangulação do polígono e outra que utiliza da busca em largura para realizar uma 3-coloração desse grafo inteligentemente em tempo polinomial, definindo o posicionamento das câmeras na galeria.
+Nessa seção, ilustraremos como é desenvolvida a solução do algoritmo que resolve o problema abordado anteriormente. A abordagem está dividida em 2 etapas, uma que envolve a triangulação do polígono e outra que utiliza da busca em profundidade (DFS) para realizar uma 3-coloração desse grafo inteligentemente em tempo polinomial, definindo o posicionamento das câmeras na galeria.
 
 ## Triangulação através do Algoritmo da Poda de Orelhas
 
@@ -56,8 +56,12 @@ Exemplo de resultado da triangulação executada no polígono de exemplo.
 <p align="center">Figura 2: Resultado da execução do Algoritmo da Poda de Orelhas na Figura 1.
 
 ## Coloração com uma Busca em Profundidade no Grafo Dual
+<div align="center">
+  <img src="https://github.com/bdlemos/Art-gallery-problem/assets/117868879/32b2b186-8f44-4f53-8798-5634f465a49e">
+</div>
+<p align="center">Figure 3: Execução da Coloração através da Busca em Profundidade no Grafo Dual.</p>
 
-![animation](https://github.com/bdlemos/Art-gallery-problem/assets/117868879/32b2b186-8f44-4f53-8798-5634f465a49e)
+--Texto--
 
 # Requisitos
 
