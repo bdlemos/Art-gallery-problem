@@ -20,13 +20,23 @@ Por fim, queremos um limite superior para a instalação de câmeras, em uma ár
 
 ## Proposta de Solução do Problema
 
-Para resolver o problema, vamos utilizar algoritmos da área de geometria computacional. Observe, então, que nossa entrada para o algoritmo será um polígono 2D. Cada vértice desse polígono será exatamente um ponto em um espaço de 2 dimensões, definido com as coordenadas (x,y) desse ponto.
+Para resolver o problema, vamos utilizar algoritmos da área de geometria computacional. Observe, então, que nossa entrada para o algoritmo será um polígono 2D. Cada vértice desse polígono será exatamente um ponto em um espaço de 2 dimensões, definido com as coordenadas (x,y) desse ponto. Formalmente, nossa entrada é uma lista de N pontos, com Pi = (xi, yi). A partir desses pontos, executaremos algoritmos clássicos de geometria computacional.
 
-Formalmente, nossa entrada é uma lista de N pontos, com Pi = (xi, yi). A partir desses pontos, executaremos algoritmos clássicos de geometria computacional. O primeiro objetivo é triangular esse polígono, pois, a partir desse polígono triangulado, basta decidir os vértices de cada triângulo em que se deseja colocar uma câmera. Para realizar essa etapa, será utilizado o **Algoritmo da Poda de Orelhas** ou **Ear Clipping Algorithm**.
+Para facilitar, o polígono abaixo será utilizado para ilustrar as etapas na solução do problema, guiando o leitor e facilitando a visualização.
+
+
+
+O primeiro objetivo é triangular esse polígono, pois, a partir desse polígono triangulado, basta decidir os vértices de cada triângulo em que se deseja colocar uma câmera. Para realizar essa etapa, será utilizado o **Algoritmo da Poda de Orelhas** ou **Ear Clipping Algorithm**.
+
 
 O segundo objetivo é exatamente encontrar quais vértices desse triângulo serão selecionados, utilizando um algoritmo de **3-Coloração**, com base no grafo dual gerado a partir do polígono triangulado. Dessa forma, estaremos selecionando exatamente a quantidade de câmeras que serão necessárias para vigiar todo o espaço, onde cada câmera vigia um triângulo do polígono. A parte interessante dessa etapa é observar que é possível realizar a 3-Coloração em tempo polinomial para esse caso, que será mostrado posteriormente.
 
+Esses algoritmos serão explicados na sessão seguinte =).
+
 ![animation](https://github.com/bdlemos/Art-gallery-problem/assets/117868879/32b2b186-8f44-4f53-8798-5634f465a49e)
+
+Exemplo de resultado da triangulação executada no polígono de exemplo.
+![image](https://github.com/bdlemos/Art-gallery-problem/assets/117868879/3bb1cb19-1b8a-49f4-8e2c-66e71f25f588)
 
 # Requisitos
 
