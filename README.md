@@ -24,7 +24,7 @@ Para resolver o problema, vamos utilizar algoritmos da área de geometria comput
 
 Para facilitar, o polígono abaixo será utilizado para ilustrar as etapas na solução do problema, guiando o leitor e facilitando a visualização.
 
-![image](https://github.com/bdlemos/Art-gallery-problem/assets/117868879/860ee872-d15e-4e1a-a304-8a9f11525016)
+<img src="https://github.com/bdlemos/Art-gallery-problem/assets/117868879/860ee872-d15e-4e1a-a304-8a9f11525016"/>
 <p align="center">Figura 1: Polígono Exemplar
 
 O primeiro objetivo é triangular esse polígono, pois, a partir desse polígono triangulado, basta decidir os vértices de cada triângulo em que se deseja colocar uma câmera. Para realizar essa etapa, será utilizado o **Algoritmo da Poda de Orelhas** ou **Ear Clipping Algorithm**.
