@@ -40,7 +40,7 @@ Nessa seção, ilustraremos como é desenvolvida a solução do algoritmo que re
 Exemplo de resultado da triangulação executada no polígono de exemplo.
 ![image](https://github.com/bdlemos/Art-gallery-problem/assets/117868879/3bb1cb19-1b8a-49f4-8e2c-66e71f25f588)
 
-## Coloração dos vértices do polígono através de uma Busca em Profundidade no Grafo Dual
+## Coloração com uma Busca em Profundidade no Grafo Dual
 
 ![animation](https://github.com/bdlemos/Art-gallery-problem/assets/117868879/32b2b186-8f44-4f53-8798-5634f465a49e)
 
