@@ -4,7 +4,7 @@ O presente GitHub tem como objetivo explorar um problema clássico de geometria 
 
 Outro objetivo deste repositório é apresentar esse problema clássico para alunos e professores da área de computação, de modo que possa ser utilizado didaticamente para compreender a solução do problema, colaborando com conhecimento para a comunidade.
 
-# Informações do Problema
+# Explorando o Problema
 
 ## Contextualização
 
@@ -25,18 +25,24 @@ Para resolver o problema, vamos utilizar algoritmos da área de geometria comput
 Para facilitar, o polígono abaixo será utilizado para ilustrar as etapas na solução do problema, guiando o leitor e facilitando a visualização.
 
 
-
 O primeiro objetivo é triangular esse polígono, pois, a partir desse polígono triangulado, basta decidir os vértices de cada triângulo em que se deseja colocar uma câmera. Para realizar essa etapa, será utilizado o **Algoritmo da Poda de Orelhas** ou **Ear Clipping Algorithm**.
-
 
 O segundo objetivo é exatamente encontrar quais vértices desse triângulo serão selecionados, utilizando um algoritmo de **3-Coloração**, com base no grafo dual gerado a partir do polígono triangulado. Dessa forma, estaremos selecionando exatamente a quantidade de câmeras que serão necessárias para vigiar todo o espaço, onde cada câmera vigia um triângulo do polígono. A parte interessante dessa etapa é observar que é possível realizar a 3-Coloração em tempo polinomial para esse caso, que será mostrado posteriormente.
 
 Esses algoritmos serão explicados na sessão seguinte =).
 
-![animation](https://github.com/bdlemos/Art-gallery-problem/assets/117868879/32b2b186-8f44-4f53-8798-5634f465a49e)
+# Metodologia e Solução
+
+Nessa seção, ilustraremos como é desenvolvida a solução do algoritmo que resolve o problema abordado anteriormente. A abordagem está dividida em 2 etapas, uma que envolve a triangulação do polígono e outra que envolve a coloração, que define o posicionamento e quantidade de câmeras
+
+## Triangulação através do Algoritmo da Poda de Orelhas
 
 Exemplo de resultado da triangulação executada no polígono de exemplo.
 ![image](https://github.com/bdlemos/Art-gallery-problem/assets/117868879/3bb1cb19-1b8a-49f4-8e2c-66e71f25f588)
+
+## Coloração dos vértices do polígono através de uma Busca em Profundidade no Grafo Dual
+
+![animation](https://github.com/bdlemos/Art-gallery-problem/assets/117868879/32b2b186-8f44-4f53-8798-5634f465a49e)
 
 # Requisitos
 
