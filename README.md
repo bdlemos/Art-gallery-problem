@@ -45,7 +45,7 @@ O Algoritmo da Poda de Orelhas é utilizado inicialmente com o objetivo de trian
 
 ### Algoritmo
 
-Esse algoritmo busca, de forma iterativa, triangular o polígono e 'podar' o triângulo gerado, através da remoção do vértice que se liga unicamente aos 2 outros vértices que compõe o triângulo. Para formalizar, seja um triângulo formado pelos pontos Pi, Pi+1, Pi+2, onde os pontos estão ordenados em ordem anti-horária. O primeiro objetivo é verificar se a reta PiPi+1Pi+2 vira a esquerda. Depois, verificar se não tem nenhum ponto Pk qualquer interno ao triângulo em questão. Por último, um dos 3 pontos será removido do polígono, suponha que seja o ponto Pi+1. Por fim, o triângulo Pi-Pi+1-Pi+2 é registrado como um triângulo possível, e as retas que formam esse triângulo são: Pi-Pi+1 (Reta do Polígono), Pi+1-Pi+2 (Reta do Polígono), Pi-Pi+2 (Reta 'imaginária'), fechando o triângulo.
+Esse algoritmo busca, de forma iterativa, triangular o polígono e 'podar' o triângulo gerado, através da remoção do vértice que se liga unicamente aos 2 outros vértices que compõe o triângulo. Para formalizar, seja um triângulo formado pelos pontos Pi, Pi+1, Pi+2, onde os pontos estão ordenados em ordem anti-horária. O primeiro objetivo é verificar se a reta PiPi+1Pi+2 vira a esquerda. Depois, verificar se não tem nenhum ponto Pk qualquer interno ao triângulo em questão. Por último, um dos 3 pontos será removido do polígono, suponha que seja o ponto Pi+1. Por fim, o triângulo (Pi)-(Pi+1)-(Pi+2) é registrado como um triângulo possível, e as retas que formam esse triângulo são: Pi-Pi+1 (Reta do Polígono), Pi+1-Pi+2 (Reta do Polígono), Pi-Pi+2 (Reta 'imaginária'), fechando o triângulo.
 
 ### Implementação
 
