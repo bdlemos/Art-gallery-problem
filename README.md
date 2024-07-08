@@ -12,7 +12,7 @@ O problema da Galeria de Artes tem uma motivação simples: queremos posicionar 
 
 Considere também que não estamos trabalhando com qualquer espaço: vamos utilizar as plantas dessa construção, e considerar que essa planta é referente à uma área aberta, ou seja, apenas os contornos que delimitam aquele espaço serão as informações que teremos para resolver esse problema de instalar as câmeras. Além disso, queremos instalar as câmeras não em qualquer lugar, mas apenas nas **paredes!**
 
-Observe que, a partir disso, temos a possibilidade de interpretar o espaço em que será instalado as câmeras como um polígono 2D. A primeira coisa que vem na nossa mente para tentar resolver o problema é: Porque não instalamos uma câmera em cada **vértice** do nosso polígono 2D? Com certeza, essa seria uma solução, mas observe que ela é cara. Se o polígono tem N vértices, e N é um número grande, sairia bem caro utilizar N câmeras de qualidade para vigiar esse espaço, afinal não podemos economizar na segurança.
+Observe que, a partir disso, temos a possibilidade de interpretar o espaço em que será instalado as câmeras como um polígono convexo 2-D. A primeira coisa que vem na nossa mente para tentar resolver o problema é: Porque não instalamos uma câmera em cada **vértice** do nosso polígono? Com certeza, essa seria uma solução, mas observe que ela é cara. Se o polígono tem N vértices, e N é um número grande, sairia bem caro utilizar N câmeras de qualidade para vigiar esse espaço.
 
 Então, será que não seria possível vigiar todo o espaço desse polígono utilizando menos de N câmeras? e a resposta é sim!  Exatamente esse é o *Problema da Galeria de Artes!*
 
