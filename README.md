@@ -70,7 +70,7 @@ A implementação do Algoritmo da Poda de Orelhas pode ser encontrada no present
 A implementação em questão faz uso do paradigma orientado a objeto, criando um objeto que representa o polígono chamado de Polygon. Após criado, o objeto conta com métodos que plotam e exibem a animação de triângulação para o polígono em questão de forma interativa com o usuário, podendo este verificar os frames da execução manualmente para acompanhar o passo a passo.
 
 > [!IMPORTANT]
-> Lembre-se que o polígono dado como entrada deve ser um [polígono simples](https://pt.wikipedia.org/wiki/Polígono_simples), e além disso, a classe espera que esses pontos estejam ordenados em [ordem anti-horária](https://www.geeksforgeeks.org/orientation-3-ordered-points/).
+> Lembre-se que o polígono dado como entrada deve ser um [polígono simples](https://pt.wikipedia.org/wiki/Polígono_simples), isto é, os pontos (vértices) que formam o polígono. Além disso, a classe espera que esses pontos estejam ordenados em [ordem anti-horária](https://www.geeksforgeeks.org/orientation-3-ordered-points/).
 
 ## Coloração com uma Busca em Profundidade no Grafo Dual
 
