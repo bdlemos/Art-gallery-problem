@@ -31,7 +31,7 @@ Observe que o problema de definir as câmeras é trivialmente resolvido, se noss
 
 O segundo objetivo é exatamente encontrar uma forma de selecionar os vértices do polígono, de modo que cobrimos todos os triângulos, para posicionar as câmeras de forma eficaz. Isso será feito utilizando um algoritmo de **3-Coloração**, executado com base no grafo dual gerado a partir do polígono triangulado. 
 
-Para definir, um grafo dual do polígono triangulado é um grafo onde todas as **faces** (nesse caso, triângulos), se tornam **vértices** e as **arestas** existem apenas entre 2 vértices, onde suas respectivas faces tem um **lado em comum**. A parte interessante dessa etapa é observar que é possível realizar a 3-Coloração em tempo polinomial, aproveitando de algumas propriedades particulares do problema.
+Para definir, um grafo dual do polígono triangulado é um grafo onde todas as **faces** (nesse caso, triângulos), se tornam **vértices** e as **arestas** existem apenas entre 2 vértices caso suas respectivas faces tem um **lado em comum**, sendo esse lado uma **diagonal**, definida nas seções posteriores. A parte interessante dessa etapa é observar que é possível realizar a 3-Coloração em tempo polinomial, aproveitando de algumas propriedades particulares do problema.
 
 Esses algoritmos serão explicados na sessão seguinte =).
 
@@ -59,19 +59,28 @@ Por fim, o algoritmo repete esse processo, removendo as orelhas (triângulos) qu
 ### Implementação
 
 A implementação do Algoritmo da Poda de Orelhas pode ser encontrada no presente repositório, definida no arquivo polygon.py, [aqui](https://github.com/bdlemos/Art-gallery-problem/blob/main/polygon.py)!
+**OBS: Algumas implementações mais elaboradas do Algoritmo da Poda de Orelhas podem executar em O(N logN)**
 
 ## Coloração com uma Busca em Profundidade no Grafo Dual
 
-Agora, vamos para a segunda etapa da solução proposta: A coloração no grafo dual. Essa etapa aparenta ser complexa, mas na realidade é extremamente simples, e vamos explorar uma propriedade desse grafo dual. Nesse momento, pare para refletir por um instante no seguinte fato: Todos os triângulos resultantes da etapa anterior fazem fronteira com 1 ou 2 triângulos. Ora, observe então que nosso grafo dual não é qualquer grafo: na realidade ele é uma árvore! Uma outra forma de enxergar isso: Escolha uma diagonal, de algum triângulo desse polígono. Observe que qualquer diagonal necessariamente divide nosso polígono em 2 partes! Essa é mais uma forma de enxergar que, na realidade, se removermos uma aresta do grafo dual, estaremos desconectando esse grafo.
+Agora, vamos para a segunda etapa da solução proposta: A coloração no grafo dual. Essa etapa aparenta ser complexa, mas na realidade é extremamente simples, e vamos explorar uma propriedade desse grafo dual. Nesse momento, pare para refletir por um instante no seguinte fato: Escolha uma diagonal, de algum triângulo desse polígono. Observe que qualquer diagonal necessariamente divide nosso polígono em 2 partes! Então, isso faz com que as arestas do nosso grafo dual, caso removidas, resultam em um grafo desconexo1 (por definição, cada diagonal se torna uma aresta no grafo dual). Nesse momento, você deve se lembrar a partir dessa mágica propriedade: *Ora, então nosso grafo dual é uma **árvore**!* Essa é mais uma forma de enxergar que, na realidade, se removermos uma aresta do grafo dual, estaremos desconectando esse grafo.
 
-Com o conhecimento que nosso grafo dual tem a propriedade de ser uma árvore, podemos realizar essa 3 coloração de forma muito inteligente: Inicialmente, escolhemos um vértice qualquer do grafo dual. Agora, vamos pegar a face que ele representa, e pintar seus vértices com 3 cores, digamos, 
+### Algoritmo
+
+Com o conhecimento que nosso grafo dual tem a propriedade de ser uma árvore, podemos realizar essa 3 coloração de forma muito inteligente: Inicialmente, escolhemos um vértice qualquer do grafo dual. Agora, vamos pegar a face que ele representa, e pintar seus vértices com 3 cores, azul, vermelho e verde. 
+
+A etapa seguinte consiste em ir para o vizinho do nosso vértice no dual. Observe que a face que esse vértice vizinho representa, por definição, compartilha 2 vértices com o triângulo anterior, tendo 2 de seus vértices já pintados. Portanto, basta selecionar a cor faltante para pintar o último vértice. A partir disso, seguimos para o próximo vértice, repetindo esse procedimento.
+
+Assim, o que estamos fazendo na prática, é executar uma Busca em Profundidade no grafo dual, pintando o vértice inicial com as 3 cores, e todos os restantes apenas completamos com a cor faltante, então essa etapa formalmente utiliza tempo O(N), isto é, linear no número de vértices do polígono de entrada. Abaixo, mostramos o grafo dual em preto sendo construído conforme é explorado pela Busca em Profundidade, e a coloração dos vértices do polígono sendo realizada enquanto ocorre essa exploração. 
 
 <div align="center">
   <img src="https://github.com/bdlemos/Art-gallery-problem/assets/117868879/32b2b186-8f44-4f53-8798-5634f465a49e">
 </div>
 <p align="center">Figure 3: Execução da Coloração através da Busca em Profundidade no Grafo Dual.</p>
 
---Texto--
+### Implementação
+
+A implementação da 3-Coloração pode ser encontrada no presente repositório, definida no arquivo Coloring.py, [aqui](https://github.com/bdlemos/Art-gallery-problem/blob/main/Coloring.py)!
 
 # Requisitos
 
