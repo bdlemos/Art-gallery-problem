@@ -72,7 +72,7 @@ Com o conhecimento que nosso grafo dual tem a propriedade de ser uma árvore, po
 
 A etapa seguinte consiste em ir para o vizinho do nosso vértice no dual. Observe que a face que esse vértice vizinho representa, por definição, compartilha 2 vértices com o triângulo anterior, tendo 2 de seus vértices já pintados. Portanto, basta selecionar a cor faltante para pintar o último vértice. A partir disso, seguimos para o próximo vértice, repetindo esse procedimento.
 
-Assim, o que estamos fazendo na prática, é executar uma Busca em Profundidade no grafo dual, pintando o vértice inicial com as 3 cores, e todos os restantes apenas completamos com a cor faltante, então essa etapa formalmente utiliza tempo O(N), isto é, linear no número de vértices do polígono de entrada. Abaixo, mostramos o grafo dual em preto sendo construído conforme é explorado pela Busca em Profundidade, e a coloração dos vértices do polígono sendo realizada enquanto ocorre essa exploração. 
+Assim, o que estamos fazendo na prática, é executar uma Busca em Profundidade no grafo dual, pintando o vértice inicial com as 3 cores, e todos os restantes apenas completamos com a cor faltante, então essa etapa formalmente utiliza tempo O(N), isto é, linear no número de vértices do polígono de entrada. Abaixo, mostramos o grafo dual em preto sendo construído conforme é explorado pela Busca em Profundidade, e a coloração dos vértices do polígono é efetuada, conforme avançamos na busca.
 
 <div align="center">
   <img src="https://github.com/bdlemos/Art-gallery-problem/assets/117868879/32b2b186-8f44-4f53-8798-5634f465a49e">
