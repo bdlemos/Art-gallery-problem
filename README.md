@@ -79,7 +79,9 @@ A implementação em questão faz uso do paradigma orientado a objeto, criando u
 
 ## Coloração com uma Busca em Profundidade no Grafo Dual
 
-Agora, vamos para a segunda etapa da solução proposta: A coloração no grafo dual. Essa etapa aparenta ser complexa, mas na realidade é extremamente simples, e vamos explorar uma propriedade desse grafo dual. Nesse momento, pare para refletir por um instante no seguinte fato: Escolha uma diagonal, de algum triângulo desse polígono. Observe que qualquer diagonal necessariamente divide nosso polígono em 2 partes! Então, isso faz com que as arestas do nosso grafo dual, caso removidas, resultam em um grafo desconexo1 (por definição, cada diagonal se torna uma aresta no grafo dual). Nesse momento, você deve se lembrar a partir dessa mágica propriedade: *Ora, então nosso grafo dual é uma **árvore**!* Essa é mais uma forma de enxergar que, na realidade, se removermos uma aresta do grafo dual, estaremos desconectando esse grafo.
+Agora, vamos para a segunda etapa da solução proposta: A coloração no grafo dual. Essa etapa aparenta ser complexa, mas na realidade é extremamente simples, e vamos explorar uma propriedade desse grafo dual. Nesse momento, pare para refletir por um instante no seguinte fato: Escolha uma diagonal, de algum triângulo desse polígono. 
+
+Observe que qualquer diagonal necessariamente divide nosso polígono em 2 partes! Então, isso faz com que as arestas do nosso grafo dual, caso removidas, resultam em um grafo desconexo1 (por definição, cada diagonal se torna uma aresta no grafo dual). Nesse momento, você deve se lembrar a partir dessa mágica propriedade: *Ora, então nosso grafo dual é uma **árvore**!* Essa é mais uma forma de enxergar que, na realidade, se removermos uma aresta do grafo dual, estaremos desconectando esse grafo.
 
 ### Algoritmo
 
