@@ -38,7 +38,7 @@ As implementações para os algoritmos apresentados como solução nessa seção
 
 # Metodologia e Solução
 
-Nessa seção, ilustraremos como é desenvolvida a solução do algoritmo que resolve o problema abordado anteriormente. A abordagem está dividida em 2 etapas, uma que envolve a triangulação do polígono e outra que utiliza da busca em profundidade (DFS) para realizar uma 3-coloração desse grafo inteligentemente em tempo polinomial, definindo o posicionamento e o limiar das câmeras para a galeria.
+Nessa seção, ilustraremos como é desenvolvida a solução do algoritmo que resolve o problema abordado anteriormente. A abordagem está dividida em 2 etapas, uma que envolve a triangulação do polígono e outra que utiliza da busca em profundidade (DFS) para realizar uma 3-coloração desse grafo em tempo polinomial, definindo o posicionamento e o limiar das câmeras para a galeria.
 
 ## Triangulação através do Algoritmo da Poda de Orelhas
 
