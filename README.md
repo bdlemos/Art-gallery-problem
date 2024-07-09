@@ -78,7 +78,7 @@ Agora, vamos para a segunda etapa da solução proposta: A coloração no grafo 
 
 ### Algoritmo
 
-Com o conhecimento que nosso grafo dual tem a propriedade de ser uma árvore, podemos realizar essa 3 coloração de forma muito inteligente: Inicialmente, escolhemos um vértice qualquer do grafo dual. Agora, vamos pegar a face que ele representa, e pintar seus vértices com 3 cores, azul, vermelho e verde. 
+Com o conhecimento que nosso grafo dual tem a propriedade de ser uma árvore, podemos realizar essa 3 coloração de forma inteligente: Inicialmente, escolhemos um vértice qualquer do grafo dual. Agora, vamos pegar a face que ele representa, e pintar seus vértices com 3 cores, azul, vermelho e verde. 
 
 A etapa seguinte consiste em ir para o vizinho do nosso vértice no dual. Observe que a face que esse vértice vizinho representa, por definição, compartilha 2 vértices com o triângulo anterior, tendo 2 de seus vértices já pintados. Portanto, basta selecionar a cor faltante para pintar o último vértice. A partir disso, seguimos para o próximo vértice, repetindo esse procedimento.
 
