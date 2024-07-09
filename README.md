@@ -97,7 +97,7 @@ Bem como a implementação do algoritmo anterior, essa implementação foi reali
 
 # Requisitos
 
-É necessário instalar a biblioteca Plotly para usufruir da animação implementada pelos alunos.
+É necessário instalar a biblioteca Plotly para visualizar as animações da implementação deste repositório.
 
 # Referências
 
