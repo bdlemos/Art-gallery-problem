@@ -60,13 +60,12 @@ Por fim, o algoritmo repete esse processo, removendo as orelhas (triângulos) qu
 
 A implementação do Algoritmo da Poda de Orelhas pode ser encontrada no presente repositório, definida no arquivo polygon.py, [aqui](https://github.com/bdlemos/Art-gallery-problem/blob/main/polygon.py)!
 
-Exemplo de resultado da triangulação executada no polígono de exemplo.
-<div align="center">
-  <img src="https://github.com/bdlemos/Art-gallery-problem/assets/117868879/3bb1cb19-1b8a-49f4-8e2c-66e71f25f588"/>
-</div>
-<p align="center">Figura 2: Resultado da execução do Algoritmo da Poda de Orelhas na Figura 1.
-
 ## Coloração com uma Busca em Profundidade no Grafo Dual
+
+Agora, vamos para a segunda etapa da solução proposta: A coloração no grafo dual. Essa etapa aparenta ser complexa, mas na realidade é extremamente simples, e vamos explorar uma propriedade desse grafo dual. Nesse momento, pare para refletir por um instante no seguinte fato: Todos os triângulos resultantes da etapa anterior fazem fronteira com 1 ou 2 triângulos. Ora, observe então que nosso grafo dual não é qualquer grafo: na realidade ele é uma árvore! Uma outra forma de enxergar isso: Escolha uma diagonal, de algum triângulo desse polígono. Observe que qualquer diagonal necessariamente divide nosso polígono em 2 partes! Essa é mais uma forma de enxergar que, na realidade, se removermos uma aresta do grafo dual, estaremos desconectando esse grafo.
+
+Com o conhecimento que nosso grafo dual tem a propriedade de ser uma árvore, podemos realizar essa 3 coloração de forma muito inteligente: Inicialmente, escolhemos um vértice qualquer do grafo dual. Agora, vamos pegar a face que ele representa, e pintar seus vértices com 3 cores, digamos, 
+
 <div align="center">
   <img src="https://github.com/bdlemos/Art-gallery-problem/assets/117868879/32b2b186-8f44-4f53-8798-5634f465a49e">
 </div>
