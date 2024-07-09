@@ -1,17 +1,18 @@
 # O Problema da Galeria de Artes
 
-<div style="text-align: right">
-  
+<div style="text-align: justify">
 O presente repositório tem como objetivo explorar um problema clássico de geometria computacional: *O Problema da Galeria de Arte*. Isso será feito resolvendo o problema de forma interativa com o usuário, mostrando o passo a passo da execução do algoritmo e os resultados parciais de cada etapa da solução. 
+</div>
 
 Outro objetivo deste repositório é apresentar esse problema clássico para alunos e professores da área de computação, de modo que possa ser utilizado didaticamente para compreender a solução do problema, colaborando com conhecimento para a comunidade.
-</div>
 
 # Explorando o Problema
 
 ## Contextualização
 
-O problema da Galeria de Artes tem uma motivação simples: queremos posicionar câmeras em uma galeria (de artes!), de modo que as câmeras não tenham pontos cegos, conseguindo vigiar todo o espaço da nossa galeria. As câmeras funcionam normalmente, tendo uma rotação em 360°, se necessário, para vigiar aquele espaço. Observe que aqui chamamos de 'galeria', mas esse problema tem  aplicação em qualquer tipo de espaço que se deseja instalar câmeras e vigiar, como bancos, bibliotecas, etc.
+<div style="text-align: justify">
+  O problema da Galeria de Artes tem uma motivação simples: queremos posicionar câmeras em uma galeria (de artes!), de modo que as câmeras não tenham pontos cegos, conseguindo vigiar todo o espaço da nossa galeria.   As câmeras funcionam normalmente, tendo uma rotação em 360°, se necessário, para vigiar aquele espaço. Observe que aqui chamamos de 'galeria', mas esse problema tem  aplicação em qualquer tipo de espaço que se      deseja instalar câmeras e vigiar, como bancos, bibliotecas, etc.
+</div>
 
 Considere também que não estamos trabalhando com qualquer espaço: apesar da galeria ser tridimensional, é possível projetá-la no plano, e trabalhar com o polígono simples formado. Além disso, queremos instalar as câmeras preferencialmente nas paredes.
 
