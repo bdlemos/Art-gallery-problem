@@ -56,7 +56,7 @@ Esse algoritmo busca, de forma iterativa, triangular o polígono e 'podar' o tri
 Portanto, o primeiro passo do algoritmo passa a ser uma busca por pontas de orelha no polígono, isto é, se a reta formada pelos vértices V<sub>i-1</sub>-V<sub>i</sub>-V<sub>i+1</sub> vira a esquerda, definindo V<sub>i</sub> como a ponta da orelha, podendo ser executado em O(1), sem uso de ponto flutuante com alguns truques de geometria computacional. Depois, verificar se não tem nenhum vértice V<sub>k</sub> qualquer interno ao triângulo em questão, também feito em tempo constante com truques de geometria computacional. Essa etapa é feita linearmente em relação ao número de vértices do polígono, visto que buscamos pela ponta de orelha. 
 
 > [!TIP]
-> Todos os truques de geometria computacional mencionados podem ser vistos na implementação.
+> Todos os truques de geometria computacional mencionados, como a rotação à esquerda e a verificação de pontos internos do triângulo podem ser encontrados na implementação.
 
 Por fim, o algoritmo repete esse processo, removendo as orelhas (triângulos) que encontra, atualiza seu polígono, apenas removendo o vértice que é a ponta da orelha, e tornando os outros 2 vértices adjacentes, até que o número de vértices seja menor ou igual à 3, sendo esse o último triângulo. Segue abaixo um gif mostrando a execução do algoritmo.
 
