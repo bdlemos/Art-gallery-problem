@@ -27,15 +27,17 @@ Para facilitar, o polígono abaixo será utilizado para ilustrar as etapas na so
 </div> 
 <p align="center">Figura 1: Polígono Exemplar
 
-Observe que o problema de definir as câmeras é trivialmente resolvido para um triângulo, bastando colocar uma única câmera em qualquer vértice. A partir dessa informação, nosso objetivo principal passa ser dividir nosso polígono principal em triângulos. Formalmente, o problema consiste em decompor esse polígono em triângulos, usando um conjunto máximo de diagonais disjuntas (que não se interceptam). Além disso, vamos definir que uma diagonal é necessariamente um segmento de reta que conecta 2 vértices e se encontra estritamente dentro do polígono. Para realizar essa etapa, será utilizado o **Algoritmo da Poda de Orelhas** ou **Ear Clipping Algorithm**.
+Observe que o problema de definir as câmeras é trivialmente resolvido, se nosso polígono de entrada é um triângulo, bastando colocar uma única câmera em qualquer vértice. A partir dessa informação, nosso objetivo principal passa ser dividir nosso polígono principal em triângulos. Formalmente, o problema consiste em decompor esse polígono em triângulos, usando um conjunto máximo de diagonais disjuntas (que não se interceptam). Além disso, vamos definir que uma diagonal é necessariamente um segmento de reta que conecta 2 vértices e se encontra estritamente dentro do polígono. Para realizar essa etapa, será utilizado o **Algoritmo da Poda de Orelhas** ou **Ear Clipping Algorithm**.
 
-O segundo objetivo é exatamente encontrar quais vértices desse triângulo serão selecionados, utilizando um algoritmo de **3-Coloração**, com base no grafo dual gerado a partir do polígono triangulado. O grafo dual desse polígono é um grafo onde todas as **faces** desse polígono, isto é, todos os triângulos se tornam **vértices** e as **arestas** existem apenas entre 2 faces (que no dual se tornam vértices!) que tem um **lado em comum**. Após realizar a coloração nos vértices do nosso polígono original, a partir do grafo dual, estaremos selecionando exatamente a quantidade de câmeras que serão necessárias para vigiar todo o espaço, onde cada câmera vigia um triângulo do polígono. A parte interessante dessa etapa é observar que é possível realizar a 3-Coloração em tempo polinomial, aproveitando de algumas propriedades particulares do problema.
+O segundo objetivo é exatamente encontrar uma forma de selecionar os vértices do polígono, de modo que cobrimos todos os triângulos, para posicionar as câmeras de forma eficaz. Isso será feito utilizando um algoritmo de **3-Coloração**, executado com base no grafo dual gerado a partir do polígono triangulado. 
+
+Para definir, um grafo dual do polígono triangulado é um grafo onde todas as **faces** (nesse caso, triângulos), se tornam **vértices** e as **arestas** existem apenas entre 2 vértices, onde suas respectivas faces tem um **lado em comum**. A parte interessante dessa etapa é observar que é possível realizar a 3-Coloração em tempo polinomial, aproveitando de algumas propriedades particulares do problema.
 
 Esses algoritmos serão explicados na sessão seguinte =).
 
 # Metodologia e Solução
 
-Nessa seção, ilustraremos como é desenvolvida a solução do algoritmo que resolve o problema abordado anteriormente. A abordagem está dividida em 2 etapas, uma que envolve a triangulação do polígono e outra que utiliza da busca em profundidade (DFS) para realizar uma 3-coloração desse grafo inteligentemente em tempo polinomial, definindo o posicionamento das câmeras na galeria.
+Nessa seção, ilustraremos como é desenvolvida a solução do algoritmo que resolve o problema abordado anteriormente. A abordagem está dividida em 2 etapas, uma que envolve a triangulação do polígono e outra que utiliza da busca em profundidade (DFS) para realizar uma 3-coloração desse grafo inteligentemente em tempo polinomial, definindo o posicionamento e o limiar das câmeras para a galeria.
 
 ## Triangulação através do Algoritmo da Poda de Orelhas
 
@@ -43,7 +45,11 @@ O Algoritmo da Poda de Orelhas é utilizado inicialmente com o objetivo de trian
 
 ### Algoritmo
 
-Esse algoritmo busca, de forma iterativa, triangular o polígono e 'podar' o triângulo gerado, através da remoção do vértice que se liga unicamente aos 2 outros vértices que compõe o triângulo. Para formalizar, seja um triângulo formado pelos pontos Pi, Pi+1, Pi+2, onde os pontos estão ordenados em ordem anti-horária. O primeiro objetivo é verificar se a reta PiPi+1Pi+2 vira a esquerda. Depois, verificar se não tem nenhum ponto Pk qualquer interno ao triângulo em questão. Por último, um dos 3 pontos será removido do polígono, suponha que seja o ponto Pi+1. Por fim, o triângulo (Pi)-(Pi+1)-(Pi+2) é registrado como um triângulo possível, e as retas que formam esse triângulo são: Pi-Pi+1 (Reta do Polígono), Pi+1-Pi+2 (Reta do Polígono), Pi-Pi+2 (Reta 'imaginária'), fechando o triângulo.
+Esse algoritmo busca, de forma iterativa, triangular o polígono e 'podar' o triângulo gerado, sendo seu tempo de execução um tempo quadrático em função da entrada O(n²). Então, vamos definir que a orelha de um polígono é um triângulo, formado pelos vértices u, v e w, onde o segmento uw é uma diagonal do polígono. Para esse caso, nosso vértice v é a nossa ponta da orelha.
+
+Portanto, o primeiro passo do algoritmo passa a ser uma busca por pontas de orelha no polígono, isto é, se a reta formada pelos vértices V(i-1)-Vi-V(i+1) vira a esquerda, definindo Vi como a ponta da orelha. Depois, verificar se não tem nenhum vértice Vk qualquer interno ao triângulo em questão. Essa etapa é feita linearmente em relação ao número de vértices do polígono. 
+
+Por fim, o algoritmo repete esse processo, removendo as orelhas (triângulos) que encontra, atualiza seu polígono, apenas removendo o vértice que é a ponta da orelha, e tornando os outros 2 vértices adjacentes, até que o número de vértices seja menor ou igual à 3, sendo esse o último triângulo.
 
 ### Implementação
 
