@@ -42,7 +42,12 @@ Nessa seção, ilustraremos como é desenvolvida a solução do algoritmo que re
 
 ## Triangulação através do Algoritmo da Poda de Orelhas
 
-O Algoritmo da Poda de Orelhas é utilizado inicialmente com o objetivo de triangular o polígono em questão. A critério de exemplo, iremos sempre nos referir ao polígono da seção anterior. Além disso, compreendemos que é satisfatório clarificar que existe um teorema que afirma que todo polígono simples admite triângulação, bem como tem exatamente n-2 triângulos, sendo n o número de vértices do polígono. A demonstração fica a cargo do leitor. A importância desse teorema para nós? Podemos concluir diretamente, então, que uma galeria de artes pode ser vigiada por n-2 câmeras, basta colocar uma em cada triângulo.
+O Algoritmo da Poda de Orelhas é utilizado inicialmente com o objetivo de triangular o polígono em questão. A critério de exemplo, iremos sempre nos referir ao polígono da seção anterior. 
+
+> [!IMPORTANT]
+> Existe um teorema que afirma que todo polígono simples admite triângulação, bem como tem exatamente n-2 triângulos, sendo n o número de vértices do polígono. A demonstração fica a cargo do leitor.
+
+A importância desse teorema para nós? Podemos concluir diretamente, então, que uma galeria de artes pode ser vigiada por n-2 câmeras, bastando colocar uma em cada triângulo. Apesar disso, esse limite será refinado ainda mais.
 
 ### Algoritmo
 
