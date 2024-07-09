@@ -93,7 +93,10 @@ Assim, o que estamos fazendo na prática, é executar uma Busca em Profundidade 
 
 A implementação da 3-Coloração pode ser encontrada no presente repositório, definida no arquivo Coloring.py, [aqui](https://github.com/bdlemos/Art-gallery-problem/blob/main/Coloring.py)!
 
-Bem como a implementação do algoritmo anterior, essa implementação foi realizada utilizando o paradigma de orientação a objeto, contando com uma classe Coloring. Essa classe espera receber um objeto do tipo Polygon em seu construtor, onde realiza automaticamente a coloração do polígono, exibindo para o usuário.
+Bem como a implementação do algoritmo anterior, essa implementação foi realizada utilizando o paradigma de orientação a objeto, contando com uma classe Coloring. Essa classe espera receber um objeto do tipo Polygon em seu construtor, onde realiza automaticamente a coloração do polígono.
+
+>[!IMPORTANT]
+> A animação da coloração se encontra implementada na [main](https://github.com/bdlemos/Art-gallery-problem/blob/main/main.py) deste repositório.
 
 # Requisitos
 
