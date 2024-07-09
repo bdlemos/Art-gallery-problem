@@ -59,6 +59,7 @@ Por fim, o algoritmo repete esse processo, removendo as orelhas (triângulos) qu
 ### Implementação
 
 A implementação do Algoritmo da Poda de Orelhas pode ser encontrada no presente repositório, definida no arquivo polygon.py, [aqui](https://github.com/bdlemos/Art-gallery-problem/blob/main/polygon.py)!
+
 **OBS: Algumas implementações mais elaboradas do Algoritmo da Poda de Orelhas podem executar em O(N logN)**
 
 ## Coloração com uma Busca em Profundidade no Grafo Dual
