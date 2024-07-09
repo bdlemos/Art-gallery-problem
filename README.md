@@ -38,7 +38,7 @@ As implementações para os algoritmos apresentados como solução nessa seção
 
 # Metodologia e Solução
 
-Nessa seção, ilustraremos como é desenvolvida a solução do algoritmo que resolve o problema abordado anteriormente. A abordagem está dividida em 2 etapas, uma que envolve a triangulação do polígono e outra que utiliza da busca em profundidade (DFS) para realizar uma 3-coloração desse grafo em tempo polinomial, definindo o posicionamento e o limiar das câmeras para a galeria.
+Nessa seção, ilustraremos como é desenvolvida a solução do algoritmo que resolve o problema abordado anteriormente. A abordagem está dividida em 2 etapas, uma que envolve a triangulação do polígono e outra que utiliza da busca em profundidade (DFS)[^1] para realizar uma 3-coloração desse grafo em tempo polinomial, definindo o posicionamento e o limiar das câmeras para a galeria.
 
 ## Triangulação através do Algoritmo da Poda de Orelhas
 
@@ -67,6 +67,11 @@ A implementação do Algoritmo da Poda de Orelhas pode ser encontrada no present
 > [!NOTE]
 > OBS: Algumas implementações mais elaboradas para triangulação de polígonos podem executar em O(N logN)
 
+A implementação em questão faz uso do paradigma orientado a objeto, criando um objeto que representa o polígono chamado de Polygon. Após criado, o objeto conta com métodos que plotam e exibem a animação de triângulação para o polígono em questão de forma interativa com o usuário, podendo este verificar os frames da execução manualmente para acompanhar o passo a passo.
+
+> [!IMPORTANT]
+> Lembre-se que o polígono dado como entrada deve ser um [polígono simples](https://pt.wikipedia.org/wiki/Polígono_simples), e além disso, a classe espera que esses pontos estejam ordenados em [ordem anti-horária](https://www.geeksforgeeks.org/orientation-3-ordered-points/).
+
 ## Coloração com uma Busca em Profundidade no Grafo Dual
 
 Agora, vamos para a segunda etapa da solução proposta: A coloração no grafo dual. Essa etapa aparenta ser complexa, mas na realidade é extremamente simples, e vamos explorar uma propriedade desse grafo dual. Nesse momento, pare para refletir por um instante no seguinte fato: Escolha uma diagonal, de algum triângulo desse polígono. Observe que qualquer diagonal necessariamente divide nosso polígono em 2 partes! Então, isso faz com que as arestas do nosso grafo dual, caso removidas, resultam em um grafo desconexo1 (por definição, cada diagonal se torna uma aresta no grafo dual). Nesse momento, você deve se lembrar a partir dessa mágica propriedade: *Ora, então nosso grafo dual é uma **árvore**!* Essa é mais uma forma de enxergar que, na realidade, se removermos uma aresta do grafo dual, estaremos desconectando esse grafo.
@@ -88,7 +93,14 @@ Assim, o que estamos fazendo na prática, é executar uma Busca em Profundidade 
 
 A implementação da 3-Coloração pode ser encontrada no presente repositório, definida no arquivo Coloring.py, [aqui](https://github.com/bdlemos/Art-gallery-problem/blob/main/Coloring.py)!
 
+Bem como a implementação do algoritmo anterior, essa implementação foi realizada utilizando o paradigma de orientação a objeto, contando com uma classe Coloring. Essa classe espera receber um objeto do tipo Polygon em seu construtor, onde realiza automaticamente a coloração do polígono, exibindo para o usuário.
+
 # Requisitos
 
 É necessário instalar a biblioteca Plotly para usufruir da animação implementada pelos alunos.
+
+# Referências
+
+[^1] Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein. Introduction to Algorithms, 3rd Edition. MIT Press, 2009. ISBN 978-0-262-03384-8.
+
 
