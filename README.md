@@ -34,7 +34,7 @@ O segundo objetivo é exatamente encontrar uma forma de selecionar os vértices 
 As implementações para os algoritmos apresentados como solução nessa seção serão desenvolvidos nas seções posteriores.
 
 > [!IMPORTANT]
-> Para definir, um grafo dual do polígono triangulado é um grafo onde todas as **faces** (nesse caso, triângulos), se tornam **vértices** e as **arestas** existem apenas entre 2 vértices caso suas respectivas faces tem um **lado em comum**, sendo esse lado uma **diagonal**, definida nas seções posteriores. 
+> Um Grafo Dual do polígono triangulado é um grafo onde todas as **faces** (nesse caso, triângulos), se tornam **vértices** e as **arestas** existem apenas entre 2 vértices caso suas respectivas faces tem um **lado em comum**, sendo esse lado uma **diagonal**, definida formalmente nas seções posteriores. 
 
 # Metodologia e Solução
 
