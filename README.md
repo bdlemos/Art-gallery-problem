@@ -49,9 +49,16 @@ Esse algoritmo busca, de forma iterativa, triangular o polígono e 'podar' o tri
 
 Portanto, o primeiro passo do algoritmo passa a ser uma busca por pontas de orelha no polígono, isto é, se a reta formada pelos vértices V(i-1)-Vi-V(i+1) vira a esquerda, definindo Vi como a ponta da orelha. Depois, verificar se não tem nenhum vértice Vk qualquer interno ao triângulo em questão. Essa etapa é feita linearmente em relação ao número de vértices do polígono. 
 
-Por fim, o algoritmo repete esse processo, removendo as orelhas (triângulos) que encontra, atualiza seu polígono, apenas removendo o vértice que é a ponta da orelha, e tornando os outros 2 vértices adjacentes, até que o número de vértices seja menor ou igual à 3, sendo esse o último triângulo.
+Por fim, o algoritmo repete esse processo, removendo as orelhas (triângulos) que encontra, atualiza seu polígono, apenas removendo o vértice que é a ponta da orelha, e tornando os outros 2 vértices adjacentes, até que o número de vértices seja menor ou igual à 3, sendo esse o último triângulo. Segue abaixo um gif mostrando a execução do algoritmo.
+
+<div align="center">
+  <img src="https://github.com/bdlemos/Art-gallery-problem/assets/117868879/b5a56fe2-089f-4155-94c6-3231f1c3c27e">
+</div>
+<p align="center">Figura 2: Execução do Algoritmo da Poda de Orelhas no polígono exemplar.
 
 ### Implementação
+
+A implementação do Algoritmo da Poda de Orelhas pode ser encontrada no presente repositório, definida no arquivo polygon.py, [aqui](https://github.com/bdlemos/Art-gallery-problem/blob/main/polygon.py)!
 
 Exemplo de resultado da triangulação executada no polígono de exemplo.
 <div align="center">
