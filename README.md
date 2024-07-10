@@ -181,6 +181,14 @@ Por fim, a conclusão é que é possível economizar algumas câmeras que seriam
 
 É necessário instalar a biblioteca Plotly para visualizar as animações da implementação deste repositório.
 
+As instruções para uso parcial das classes estão nos tópicos anteriores. Caso queria utilizar o repositório como um todo, baixe os arquivos do repositório em algum diretório da sua escolha, vá até esse diretório e execute o comando a seguir no terminal.
+
+```
+python3 main.py <nome_da_instância>
+```
+
+Lembre-se que <nome_da_instância> não é apenas o nome do arquivo, mas seu endereço completo.
+
 </div>
 
 # Autores
