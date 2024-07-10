@@ -165,7 +165,7 @@ Bem como a implementação do algoritmo anterior, essa implementação foi reali
 
 # Conclusão
 
-<div aling="justify">
+<div align="justify">
 
 Por fim, a conclusão é que é possível economizar algumas câmeras que seriam utilizadas, visto que agora nosso limiar para as câmeras utilizando os algoritmos acima é n/3, e o posicionamento das câmeras fica definido com base na coloração de cada vértice obtida na segunda etapa da solução propostas.
 
