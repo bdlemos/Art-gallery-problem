@@ -49,7 +49,7 @@ As implementações para os algoritmos apresentados como solução nessa seção
 </div>
 
 > [!IMPORTANT]
-> Um Grafo Dual do polígono triangulado é um grafo onde todas as **faces** (nesse caso, triângulos), se tornam **vértices** e as **arestas** existem apenas entre 2 vértices caso suas respectivas faces tem um **lado em comum**, sendo esse lado uma **diagonal**, definida formalmente nas seções posteriores. 
+> <div align="justify"> Um Grafo Dual do polígono triangulado é um grafo onde todas as **faces** (nesse caso, triângulos), se tornam **vértices** e as **arestas** existem apenas entre 2 vértices caso suas respectivas faces tem um **lado em comum**, sendo esse lado uma **diagonal**, definida formalmente nas seções posteriores. </div>
 
 # Metodologia e Solução
 
@@ -68,7 +68,7 @@ O Algoritmo da Poda de Orelhas é utilizado inicialmente com o objetivo de trian
 </div>
 
 > [!IMPORTANT]
-> Existe um teorema que afirma que todo polígono simples admite triângulação, bem como tem exatamente n-2 triângulos, sendo n o número de vértices do polígono. A demonstração fica a cargo do leitor.
+> <div align="justify">Existe um teorema que afirma que todo polígono simples admite triângulação, bem como tem exatamente n-2 triângulos, sendo n o número de vértices do polígono. A demonstração fica a cargo do leitor.</div>
 
 <div align="justify">
 
@@ -86,7 +86,7 @@ Portanto, o primeiro passo do algoritmo passa a ser uma busca por pontas de orel
 </div>
 
 > [!TIP]
-> Todos os truques de geometria computacional mencionados, como a rotação à esquerda e a verificação de pontos internos do triângulo podem ser encontrados na implementação.
+> <div align="justify">Todos os truques de geometria computacional mencionados, como a rotação à esquerda e a verificação de pontos internos do triângulo podem ser encontrados na implementação. </div>
 
 <div align="justify">
 
@@ -117,7 +117,7 @@ A implementação em questão faz uso do paradigma orientado a objeto, criando u
 </div>
 
 > [!IMPORTANT]
-> Lembre-se que o polígono dado como entrada deve ser um [polígono simples](https://pt.wikipedia.org/wiki/Polígono_simples), isto é, os pontos (vértices) que formam o polígono. Além disso, a classe espera que esses pontos estejam ordenados em [ordem anti-horária](https://www.geeksforgeeks.org/orientation-3-ordered-points/).
+> <div align="justify">Lembre-se que o polígono dado como entrada deve ser um [polígono simples](https://pt.wikipedia.org/wiki/Polígono_simples), isto é, os pontos (vértices) que formam o polígono. Além disso, a classe espera que esses pontos estejam ordenados em [ordem anti-horária](https://www.geeksforgeeks.org/orientation-3-ordered-points/).</div>
 
 ## Coloração com uma Busca em Profundidade no Grafo Dual
 
