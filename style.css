@@ -1,0 +1,33 @@
+
+
+body {
+    background-color: lightblue;
+    font-family: 'Roboto', sans-serif;
+    margin: 50px 400px 50px 400px;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    margin:0.1rem 0.1rem 0.1rem 0.1rem;
+    border: 0.1rem solid rgb(0, 0, 0);
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+.important {
+    text-align: justify;
+    border-left: 4px solid #ffcc00;
+    padding-left: 10px;
+    padding-top: 10px;
+    background-color: #fff9e6;
+    margin: 20px 0;
+}
