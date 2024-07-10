@@ -75,6 +75,7 @@ O Algoritmo da Poda de Orelhas é utilizado inicialmente com o objetivo de trian
 A importância desse teorema para nós? Podemos concluir diretamente, então, que uma galeria de artes pode ser vigiada por n-2 câmeras, bastando colocar uma em cada triângulo. Apesar disso, esse limite será refinado ainda mais.
 
 </div>
+
 ### Algoritmo
 
 <div align="justify">
