@@ -28,7 +28,7 @@ Então, será que não seria possível vigiar todo o espaço desse polígono uti
 
 <div align="justify">
 
-Para resolver o problema, vamos utilizar algoritmos da área de geometria computacional. Observe, então, que nossa entrada para o algoritmo será um polígono 2D. Cada vértice desse polígono será exatamente um ponto em um espaço de 2 dimensões, definido com as coordenadas (x,y) desse ponto. Formalmente, nossa entrada é uma lista de N pontos, com P<sub>i</sub> = (x<sub>i</sub>, y<sub>i</sub>). A partir desses pontos, executaremos alguns algoritmos clássicos de geometria computacional para resolver o problema.
+Para resolver o problema, vamos utilizar algoritmos da área de geometria computacional. Observe, então, que nossa entrada para o algoritmo será um polígono 2D. Cada vértice desse polígono será exatamente um ponto em um espaço de 2 dimensões, definido com as coordenadas desse ponto. Formalmente, nossa entrada é uma lista de N pontos, com P<sub>i</sub> = (x<sub>i</sub>, y<sub>i</sub>). A partir desses pontos, executaremos alguns algoritmos clássicos de geometria computacional para resolver o problema.
 
 Para facilitar, o polígono abaixo será utilizado para ilustrar as etapas na solução do problema, guiando o leitor e facilitando a visualização.
 
