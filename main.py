@@ -66,7 +66,7 @@ def plot_plt(polygon, triangles, coloring):
     ani = FuncAnimation(fig, animate, frames=len(dfs_order), init_func=init, blit=True, repeat=True, interval=1000)
 
     plt.show()
-    ani.save('animation.gif', writer='pillow', fps=5)
+    #ani.save('animation.gif', writer='pillow', fps=5)
 
 
 

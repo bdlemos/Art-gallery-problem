@@ -203,4 +203,4 @@ class Polygon:
 
         # Show the figure
         fig.show()
-        fig.write_html("triangulacao.html")
+        #fig.write_html("triangulacao.html", full_html=False, include_plotlyjs='cdn')
