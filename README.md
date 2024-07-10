@@ -171,9 +171,7 @@ Por fim, a conclusão é que é possível economizar algumas câmeras que seriam
 
 </div>
 
-### Autores
-
-Bernardo Dutra Lemos e Raphael Aroldo Carreiro Mendes
+> Por Bernardo Dutra Lemos e Raphael Aroldo Carreiro Mendes
 
 # Requisitos
 
