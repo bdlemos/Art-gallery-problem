@@ -187,7 +187,7 @@ As instruções para uso parcial das classes estão nos tópicos anteriores. Cas
 python3 main.py <nome_da_instância>
 ```
 
-Lembre-se que <nome_da_instância> não é apenas o nome do arquivo, mas seu endereço completo.
+Lembre-se que nome_da_instância não é apenas o nome do arquivo, mas seu endereço completo. Preferencialmente, utilize a extensão .txt para posicionar os pontos do polígono.
 
 </div>
 
