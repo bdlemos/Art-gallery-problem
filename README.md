@@ -163,6 +163,14 @@ Bem como a implementação do algoritmo anterior, essa implementação foi reali
 >[!IMPORTANT]
 > A animação da coloração se encontra implementada na [main](https://github.com/bdlemos/Art-gallery-problem/blob/main/main.py) deste repositório.
 
+# Conclusão
+
+<div aling="justify">
+
+Por fim, a conclusão é que é possível economizar algumas câmeras que seriam utilizadas, visto que agora nosso limiar para as câmeras utilizando os algoritmos acima é n/3, e o posicionamento das câmeras fica definido com base na coloração de cada vértice obtida na segunda etapa da solução propostas.
+
+</div>
+
 # Requisitos
 
 <div align="justify">
@@ -170,6 +178,10 @@ Bem como a implementação do algoritmo anterior, essa implementação foi reali
 É necessário instalar a biblioteca Plotly para visualizar as animações da implementação deste repositório.
 
 </div>
+
+# Participação
+
+[Bernardo Dutra Lemos](github.com/bdlemos) e [Raphael Aroldo Carreiro Mendes](github.com/rapha1201)
 
 # Referências
 
