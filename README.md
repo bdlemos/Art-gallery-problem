@@ -1,5 +1,7 @@
 # O Problema da Galeria de Artes
 
+Por Bernardo Dutra Lemos e Raphael Aroldo Carreiro Mendes
+
 <div align="justify">
 
 O presente repositório tem como objetivo explorar um problema clássico de geometria computacional: *O Problema da Galeria de Arte*. Isso será feito resolvendo o problema de forma interativa com o usuário, mostrando o passo a passo da execução do algoritmo e os resultados parciais de cada etapa da solução.
@@ -178,10 +180,6 @@ Por fim, a conclusão é que é possível economizar algumas câmeras que seriam
 É necessário instalar a biblioteca Plotly para visualizar as animações da implementação deste repositório.
 
 </div>
-
-# Participação
-
-[Bernardo Dutra Lemos](github.com/bdlemos) e [Raphael Aroldo Carreiro Mendes](github.com/rapha1201)
 
 # Referências
 
