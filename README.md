@@ -84,7 +84,9 @@ A importância desse teorema para nós? Podemos concluir diretamente, então, qu
 
 Esse algoritmo busca, de forma iterativa, triangular o polígono e 'podar' o triângulo gerado, sendo seu tempo de execução um tempo quadrático em função da entrada O(N<sup>2</sup>). Então, vamos definir que a orelha de um polígono é um triângulo, formado pelos vértices u, v e w, onde o segmento uw é uma diagonal do polígono. Para esse caso, nosso vértice v é a nossa ponta da orelha.
 
-Portanto, o primeiro passo do algoritmo passa a ser uma busca por pontas de orelha no polígono, isto é, se a reta formada pelos vértices V<sub>i-1</sub>-V<sub>i</sub>-V<sub>i+1</sub> vira a esquerda, definindo V<sub>i</sub> como a ponta da orelha, podendo ser executado em O(1), sem uso de ponto flutuante com alguns truques de geometria computacional. Depois, verificar se não tem nenhum vértice V<sub>k</sub> qualquer interno ao triângulo em questão, também feito em tempo constante com truques de geometria computacional. Essa etapa é feita linearmente em relação ao número de vértices do polígono, visto que buscamos pela ponta de orelha. 
+Portanto, o primeiro passo do algoritmo passa a ser uma busca por pontas de orelha no polígono, isto é, se a reta formada pelos vértices V<sub>i-1</sub>-V<sub>i</sub>-V<sub>i+1</sub> vira a esquerda, definindo V<sub>i</sub> como a ponta da orelha. Isso pode ser executado em O(1), sem uso de ponto flutuante com alguns truques de geometria computacional. 
+
+Depois, verificar se não tem nenhum vértice V<sub>k</sub> qualquer interno ao triângulo em questão, também feito em tempo constante com truques de geometria computacional. Essa etapa é feita linearmente em relação ao número de vértices do polígono, visto que temos que buscar pela ponta de orelha, utilizando os testes acima sob todo vértice.
 
 </div>
 
@@ -93,7 +95,7 @@ Portanto, o primeiro passo do algoritmo passa a ser uma busca por pontas de orel
 
 <div align="justify">
 
-Por fim, o algoritmo repete esse processo, removendo as orelhas (triângulos) que encontra, atualiza seu polígono, apenas removendo o vértice que é a ponta da orelha, e tornando os outros 2 vértices adjacentes, até que o número de vértices seja menor ou igual à 3, sendo esse o último triângulo. Segue abaixo um gif mostrando a execução do algoritmo.
+Por fim, o algoritmo repete esse processo, removendo as orelhas (triângulos) que encontra, atualiza seu polígono, apenas removendo o vértice que é a ponta da orelha e tornando os outros 2 vértices adjacentes, até que o número de vértices seja menor ou igual à 3, restando o último triângulo. Segue abaixo um gif mostrando a execução do algoritmo.
 
 </div>
 
@@ -111,7 +113,7 @@ A implementação do Algoritmo da Poda de Orelhas pode ser encontrada no present
 </div>
 
 > [!NOTE]
-> OBS: Algumas implementações mais elaboradas para triangulação de polígonos podem executar em O(N logN)
+> Algumas implementações mais elaboradas para triangulação de polígonos podem executar em O(N logN)
 
 <div align="justify">
 
@@ -129,9 +131,9 @@ A implementação em questão faz uso do paradigma de orientação à objeto, cr
 
 <div align="justify">
 
-Agora, vamos para a segunda etapa da solução proposta: A coloração no grafo dual. Essa etapa aparenta ser complexa, mas na realidade é extremamente simples, e vamos explorar uma propriedade desse grafo dual. Nesse momento, pare para refletir por um instante no seguinte fato: Escolha uma diagonal, de algum triângulo desse polígono. 
+Agora, vamos para a segunda etapa da solução proposta: A coloração no grafo dual. Essa etapa aparenta ser complexa, mas na realidade é extremamente simples, e vamos explorar uma propriedade desse grafo dual. Nesse momento, pare para refletir por um instante no seguinte fato: Escolha uma diagonal, de algum triângulo desse polígono. Observe que qualquer diagonal necessariamente divide nosso polígono em 2 partes! 
 
-Observe que qualquer diagonal necessariamente divide nosso polígono em 2 partes! Então, isso faz com que as arestas do nosso grafo dual, caso removidas, resultam em um grafo desconexo1 (por definição, cada diagonal se torna uma aresta no grafo dual). Nesse momento, você deve se lembrar a partir dessa mágica propriedade: *Ora, então nosso grafo dual é uma **árvore**!* Essa é mais uma forma de enxergar que, na realidade, se removermos uma aresta do grafo dual, estaremos desconectando esse grafo.
+Então, isso faz com que as arestas do nosso grafo dual, caso removidas, resultam em um grafo desconexo (por definição, cada diagonal se torna uma aresta no grafo dual). Nesse momento, você deve se lembrar a partir dessa mágica propriedade: *Ora, então nosso grafo dual é uma **árvore**!* Essa é mais uma forma de enxergar que, na realidade, se removermos uma aresta do grafo dual, estaremos desconectando esse grafo.
 
 </div>
 
@@ -173,18 +175,26 @@ Por fim, a conclusão é que é possível economizar algumas câmeras que seriam
 
 </div>
 
-> Por Bernardo Dutra Lemos e Raphael Aroldo Carreiro Mendes
-
 # Requisitos
 
 <div align="justify">
 
 É necessário instalar a biblioteca Plotly para visualizar as animações da implementação deste repositório.
 
+As instruções para uso parcial das classes estão nos tópicos anteriores. Caso queria utilizar o repositório como um todo, baixe os arquivos do repositório em algum diretório da sua escolha, vá até esse diretório e execute o comando a seguir no terminal.
+
+```
+python3 main.py <nome_da_instância>
+```
+
+Lembre-se que nome_da_instância não é apenas o nome do arquivo, mas seu endereço completo. Preferencialmente, utilize a extensão .txt para posicionar os pontos do polígono.
+
 </div>
+
+# Autores
+
+Bernardo Dutra Lemos e Raphael Aroldo Carreiro Mendes
 
 # Referências
 
 [^1]: Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein. Introduction to Algorithms, 3rd Edition. MIT Press, 2009. ISBN 978-0-262-03384-8.
-
-
