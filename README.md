@@ -111,7 +111,7 @@ A implementação do Algoritmo da Poda de Orelhas pode ser encontrada no present
 > [!NOTE]
 > OBS: Algumas implementações mais elaboradas para triangulação de polígonos podem executar em O(N logN)
 
-<div align="justify>
+<div align="justify">
 
 A implementação em questão faz uso do paradigma orientado a objeto, criando um objeto que representa o polígono chamado de Polygon. Após criado, o objeto conta com métodos que plotam e exibem a animação de triângulação para o polígono em questão de forma interativa com o usuário, podendo este verificar os frames da execução manualmente para acompanhar o passo a passo.
 
