@@ -75,7 +75,7 @@
         posteriores.</p>
         </div>
         <div class="important">
-            <strong>IMPORTANTE</strong>
+            <strong>Importante</strong>
             <p>Um Grafo Dual do polígono triangulado é um grafo onde todas as <b>faces</b> (nesse caso, triângulos), se tornam <b>vértices</b> 
                 e as <b>arestas</b> existem apenas entre 2 vértices caso suas respectivas faces tem um <b>lado em comum</b>, sendo esse lado 
                 uma <b>diagonal</b>, definida formalmente nas seções posteriores.</p>
@@ -97,42 +97,53 @@
         critério de exemplo, iremos sempre nos referir ao polígono da seção anterior. 
         <p>
         <div class="important">
-            <strong> IMPORTANTE</strong>
+            <strong> Importante</strong>
             <p>Existe um teorema que afirma que todo polígono simples admite triângulação, bem como tem
         exatamente n-2 triângulos, sendo n o número de vértices do polígono. A demonstração fica a cargo do leitor.</p> 
         </div>
         </p>
         <p>A importância desse teorema para nós? Podemos concluir diretamente, então, que uma galeria de artes pode ser vigiada
-        por n-2 câmeras, basta colocar uma em cada triângulo.</p>
+        por n-2 câmeras, basta colocar uma em cada triângulo. Apesar disso, esse limite será refinado ainda mais.</p>
         </div>
 
         <h3>Algoritmo</h3>
+        
+        <div align="justify">
 
-        Esse algoritmo busca, de forma iterativa, triangular o polígono e &#39;podar&#39; o triângulo gerado, sendo seu
+        <p>Esse algoritmo busca, de forma iterativa, triangular o polígono e &#39;podar&#39; o triângulo gerado, sendo seu
         tempo de execução um tempo quadrático em função da entrada O(N<sup>2</sup>). Então, vamos definir que a orelha de um
         polígono é um triângulo, formado pelos vértices u, v e w, onde o segmento uw é uma diagonal do polígono. Para esse
-        caso, nosso vértice v é a nossa ponta da orelha.
+        caso, nosso vértice v é a nossa ponta da orelha.</p>
 
-        Portanto, o primeiro passo do algoritmo passa a ser uma busca por pontas de orelha no polígono, isto é, se a reta
+        <p>Portanto, o primeiro passo do algoritmo passa a ser uma busca por pontas de orelha no polígono, isto é, se a reta
         formada pelos vértices V<sub>i-1</sub>-V<sub>i</sub>-V<sub>i+1</sub> vira a esquerda, definindo V<sub>i</sub> como a
-        ponta da orelha, podendo ser executado em O(1), sem uso de ponto flutuante com alguns truques de geometria
-        computacional. Depois, verificar se não tem nenhum vértice V<sub>k</sub> qualquer interno ao triângulo em questão,
+        ponta da orelha. Isso pode ser executado em O(1), sem uso de ponto flutuante com alguns truques de geometria computacional.</p>
+        
+        <p>Depois, verificar se não tem nenhum vértice V<sub>k</sub> qualquer interno ao triângulo em questão,
         também feito em tempo constante com truques de geometria computacional. Essa etapa é feita linearmente em relação ao
-        número de vértices do polígono, visto que buscamos pela ponta de orelha.
+        número de vértices do polígono, visto que buscamos pela ponta de orelha.</p>
 
-        <div class="important">
-            <strong>Tip</strong>
+        </div>
+
+        <div class="important" align="justify">
+            <strong>Dica</strong>
             <p>Todos os truques de geometria computacional mencionados podem ser vistos na implementação.</p>
         </div>
 
+        <p>
+        <div align="justify">
         Por fim, o algoritmo repete esse processo, removendo as orelhas (triângulos) que encontra, atualiza seu polígono,
-        apenas removendo o vértice que é a ponta da orelha, e tornando os outros 2 vértices adjacentes, até que o número de
-        vértices seja menor ou igual à 3, sendo esse o último triângulo. Segue abaixo um gif mostrando a execução do
+        apenas removendo o vértice que é a ponta da orelha e tornando os outros 2 vértices adjacentes, até que o número de
+        vértices seja menor ou igual à 3, restando o último triângulo. Segue abaixo um gif mostrando a execução do
         algoritmo.
-
+        </div> 
+        </p>
+        
+        <p>
         <div align="center">
             <img src="imgs/polygon_triang.gif">
         </div>
+        </p>
         <p align="center">Figura 2: Execução do Algoritmo da Poda de Orelhas no polígono exemplar. </p>
 
         <h3>Implementação</h3>
@@ -142,47 +153,120 @@
 
         <div class="important">
             <strong>Nota</strong>
-            <p>OBS: Algumas implementações mais elaboradas do Algoritmo da Poda de Orelhas podem executar em O(N logN)</p>
+            <p>Algumas implementações mais elaboradas do Algoritmo da Poda de Orelhas podem executar em O(N logN)</p>
         </div>
+
+        <p>
+        <div align="justify">
+
+            A implementação em questão faz uso do paradigma de orientação à objeto, criando um objeto que representa o polígono, 
+            chamado de Polygon. Após criado, o objeto conta com métodos que plotam e exibem a animação de triângulação para o polígono 
+            em questão de forma interativa com o usuário, podendo este verificar os frames da execução manualmente para acompanhar o 
+            passo a passo.
+
+        </div>
+        </p>
+
+        <p>
+        <div align="justify">
+            Lembre-se que o polígono dado como entrada deve ser um <a href="https://pt.wikipedia.org/wiki/Polígono_simples">polígono simples</a>, 
+            isto é, os pontos (vértices) que formam o polígono. Além disso, a classe espera que esses pontos estejam ordenados em 
+            <a href="https://www.geeksforgeeks.org/orientation-3-ordered-points/">ordem anti-horária</a>.        
+        </div>
+        </p>
 
         <h3>Coloração com uma Busca em Profundidade no Grafo Dual </h3>
 
-        Agora, vamos para a segunda etapa da solução proposta: A coloração no grafo dual. Essa etapa aparenta ser complexa,
+        <div align="justify">
+        <p>Agora, vamos para a segunda etapa da solução proposta: A coloração no grafo dual. Essa etapa aparenta ser complexa,
         mas na realidade é extremamente simples, e vamos explorar uma propriedade desse grafo dual. Nesse momento, pare para
         refletir por um instante no seguinte fato: Escolha uma diagonal, de algum triângulo desse polígono. Observe que
-        qualquer diagonal necessariamente divide nosso polígono em 2 partes! Então, isso faz com que as arestas do nosso
-        grafo dual, caso removidas, resultam em um grafo desconexo1 (por definição, cada diagonal se torna uma aresta no
+        qualquer diagonal necessariamente divide nosso polígono em 2 partes! </p>
+        
+        <p>Então, isso faz com que as arestas do nosso
+        grafo dual, caso removidas, resultam em um grafo desconexo (por definição, cada diagonal se torna uma aresta no
         grafo dual). Nesse momento, você deve se lembrar a partir dessa mágica propriedade: <em>Ora, então nosso grafo dual
-            é uma <strong>árvore</strong>!</em> Essa é mais uma forma de enxergar que, na realidade, se removermos uma
-        aresta do grafo dual, estaremos desconectando esse grafo.
+        é uma <strong>árvore</strong>!</em> Essa é mais uma forma de enxergar que, na realidade, se removermos uma
+        aresta do grafo dual, estaremos desconectando esse grafo.</p>
+        </div>
 
         <h3>Algoritmo</h3>
-
-        Com o conhecimento que nosso grafo dual tem a propriedade de ser uma árvore, podemos realizar essa 3 coloração de
+        <div align="justify">
+        <p>Com o conhecimento que nosso grafo dual tem a propriedade de ser uma árvore, podemos realizar essa 3 coloração de
         forma muito inteligente: Inicialmente, escolhemos um vértice qualquer do grafo dual. Agora, vamos pegar a face que
-        ele representa, e pintar seus vértices com 3 cores, azul, vermelho e verde.
+        ele representa, e pintar seus vértices com 3 cores, azul, vermelho e verde.</p>
 
-        A etapa seguinte consiste em ir para o vizinho do nosso vértice no dual. Observe que a face que esse vértice vizinho
+        <p>A etapa seguinte consiste em ir para o vizinho do nosso vértice no dual. Observe que a face que esse vértice vizinho
         representa, por definição, compartilha 2 vértices com o triângulo anterior, tendo 2 de seus vértices já pintados.
         Portanto, basta selecionar a cor faltante para pintar o último vértice. A partir disso, seguimos para o próximo
-        vértice, repetindo esse procedimento.
+        vértice, repetindo esse procedimento.</p>
 
-        Assim, o que estamos fazendo na prática, é executar uma Busca em Profundidade no grafo dual, pintando o vértice
+        <p>Assim, o que estamos fazendo na prática, é executar uma Busca em Profundidade no grafo dual, pintando o vértice
         inicial com as 3 cores, e todos os restantes apenas completamos com a cor faltante, então essa etapa formalmente
         utiliza tempo O(N), isto é, linear no número de vértices do polígono de entrada. Abaixo, mostramos o grafo dual em
         preto sendo construído conforme é explorado pela Busca em Profundidade, e a coloração dos vértices do polígono é
-        efetuada, conforme avançamos na busca.
-
+        efetuada, conforme avançamos na busca.</p>
+        </div>
+        
+        <p>
         <div align="center">
             <img src="imgs/animation.gif">
-        </div>
+        </div> </p>
         <p align="center">Figure 3: Execução da Coloração através da Busca em Profundidade no Grafo Dual.</p>
 
         <h3 id="implementa-o">Implementação</h3>
         <p>A implementação da 3-Coloração pode ser encontrada no presente repositório, definida no arquivo Coloring.py, <a
-                href="https://github.com/bdlemos/Art-gallery-problem/blob/main/Coloring.py">aqui</a>!</p>
-        <h1 id="requisitos" align="center">Requisitos</h1>
+                href="https://github.com/bdlemos/Art-gallery-problem/blob/main/Coloring.py">aqui</a>!
+        </p>
+        
+        <div align="justify">
+        <p>
+        Bem como a implementação do algoritmo anterior, essa implementação foi realizada utilizando o paradigma de orientação à objeto, 
+        contando com uma classe Coloring. Essa classe espera receber um objeto do tipo Polygon em seu construtor, onde realiza 
+        automaticamente a coloração do polígono.
+        </p>
+        </div>
+
+        <div class="important" align="justify">
+            <strong>Importante</strong>
+            <p>A animação da coloração se encontra implementada na <a href="https://github.com/bdlemos/Art-gallery-problem/blob/main/main.py">main</a> deste repositório.</p>
+        </div>
+        
+        <h1 id="conclu-ao">Conclusão</h1>
+
+        <div align="justify">
+
+            Por fim, a conclusão é que é possível economizar algumas câmeras que seriam utilizadas, visto que agora nosso limiar 
+            para as câmeras utilizando os algoritmos acima é n/3, e o posicionamento das câmeras fica definido com base na coloração 
+            de cada vértice obtida na segunda etapa da solução propostas.
+        </div>
+
+        <h1 id="requisitos">Requisitos</h1>
         <p>É necessário instalar a biblioteca Plotly para usufruir da animação implementada pelos alunos.</p>
+
+        <div align="justify">
+        <p>
+            As instruções para uso parcial das classes estão nos tópicos anteriores. Caso queria utilizar o 
+            repositório como um todo, baixe os arquivos do <a href="https://github.com/bdlemos/Art-gallery-problem/">repositório</a> em algum diretório da sua escolha, vá 
+            até esse diretório e execute o comando a seguir no terminal.
+        </p>
+        </div>
+
+        <div align="center">
+        <p>
+            <code>
+                python3 main.py <em>nome_da_instância</em>
+            </code>
+        </p>
+        </div>
+
+        <div align="justify">
+            Lembre-se que <em>nome_da_instância</em> não é apenas o nome do arquivo, mas seu endereço completo. Preferencialmente, utilize a extensão .txt para posicionar os pontos do polígono.
+        </div>
+
+        <h1> Autores</h1>
+        
+        Bernardo Dutra Lemos e Raphael Aroldo Carreiro Mendes
     </div>
     <body>
 
