@@ -46,10 +46,10 @@ O segundo objetivo é exatamente encontrar uma forma de selecionar os vértices 
 
 As implementações para os algoritmos apresentados como solução nessa seção serão desenvolvidos nas seções posteriores.
 
+</div>
+
 > [!IMPORTANT]
 > Um Grafo Dual do polígono triangulado é um grafo onde todas as **faces** (nesse caso, triângulos), se tornam **vértices** e as **arestas** existem apenas entre 2 vértices caso suas respectivas faces tem um **lado em comum**, sendo esse lado uma **diagonal**, definida formalmente nas seções posteriores. 
-
-</div>
 
 # Metodologia e Solução
 
@@ -65,8 +65,12 @@ Nessa seção, ilustraremos como é desenvolvida a solução do algoritmo que re
   
 O Algoritmo da Poda de Orelhas é utilizado inicialmente com o objetivo de triangular o polígono em questão. A critério de exemplo, iremos sempre nos referir ao polígono da seção anterior. 
 
+</div>
+
 > [!IMPORTANT]
 > Existe um teorema que afirma que todo polígono simples admite triângulação, bem como tem exatamente n-2 triângulos, sendo n o número de vértices do polígono. A demonstração fica a cargo do leitor.
+
+<div align="justify">
 
 A importância desse teorema para nós? Podemos concluir diretamente, então, que uma galeria de artes pode ser vigiada por n-2 câmeras, bastando colocar uma em cada triângulo. Apesar disso, esse limite será refinado ainda mais.
 
@@ -79,8 +83,12 @@ Esse algoritmo busca, de forma iterativa, triangular o polígono e 'podar' o tri
 
 Portanto, o primeiro passo do algoritmo passa a ser uma busca por pontas de orelha no polígono, isto é, se a reta formada pelos vértices V<sub>i-1</sub>-V<sub>i</sub>-V<sub>i+1</sub> vira a esquerda, definindo V<sub>i</sub> como a ponta da orelha, podendo ser executado em O(1), sem uso de ponto flutuante com alguns truques de geometria computacional. Depois, verificar se não tem nenhum vértice V<sub>k</sub> qualquer interno ao triângulo em questão, também feito em tempo constante com truques de geometria computacional. Essa etapa é feita linearmente em relação ao número de vértices do polígono, visto que buscamos pela ponta de orelha. 
 
+</div>
+
 > [!TIP]
 > Todos os truques de geometria computacional mencionados, como a rotação à esquerda e a verificação de pontos internos do triângulo podem ser encontrados na implementação.
+
+<div align="justify">
 
 Por fim, o algoritmo repete esse processo, removendo as orelhas (triângulos) que encontra, atualiza seu polígono, apenas removendo o vértice que é a ponta da orelha, e tornando os outros 2 vértices adjacentes, até que o número de vértices seja menor ou igual à 3, sendo esse o último triângulo. Segue abaixo um gif mostrando a execução do algoritmo.
 
@@ -97,15 +105,19 @@ Por fim, o algoritmo repete esse processo, removendo as orelhas (triângulos) qu
 
 A implementação do Algoritmo da Poda de Orelhas pode ser encontrada no presente repositório, definida no arquivo polygon.py, [aqui](https://github.com/bdlemos/Art-gallery-problem/blob/main/polygon.py)!
 
+</div>
+
 > [!NOTE]
 > OBS: Algumas implementações mais elaboradas para triangulação de polígonos podem executar em O(N logN)
 
+<div align="justify>
+
 A implementação em questão faz uso do paradigma orientado a objeto, criando um objeto que representa o polígono chamado de Polygon. Após criado, o objeto conta com métodos que plotam e exibem a animação de triângulação para o polígono em questão de forma interativa com o usuário, podendo este verificar os frames da execução manualmente para acompanhar o passo a passo.
+
+</div>
 
 > [!IMPORTANT]
 > Lembre-se que o polígono dado como entrada deve ser um [polígono simples](https://pt.wikipedia.org/wiki/Polígono_simples), isto é, os pontos (vértices) que formam o polígono. Além disso, a classe espera que esses pontos estejam ordenados em [ordem anti-horária](https://www.geeksforgeeks.org/orientation-3-ordered-points/).
-
-</div>
 
 ## Coloração com uma Busca em Profundidade no Grafo Dual
 
@@ -142,10 +154,11 @@ A implementação da 3-Coloração pode ser encontrada no presente repositório,
 
 Bem como a implementação do algoritmo anterior, essa implementação foi realizada utilizando o paradigma de orientação a objeto, contando com uma classe Coloring. Essa classe espera receber um objeto do tipo Polygon em seu construtor, onde realiza automaticamente a coloração do polígono.
 
+</div>
+
 >[!IMPORTANT]
 > A animação da coloração se encontra implementada na [main](https://github.com/bdlemos/Art-gallery-problem/blob/main/main.py) deste repositório.
 
-</div>
 # Requisitos
 
 <div align="justify">
