@@ -117,13 +117,12 @@ A implementação em questão faz uso do paradigma orientado a objeto, criando u
 
 </div>
 
+<div align="justify">
+
 > [!IMPORTANT]
->
-> <div align="justify">
->
 > Lembre-se que o polígono dado como entrada deve ser um [polígono simples](https://pt.wikipedia.org/wiki/Polígono_simples), isto é, os pontos (vértices) que formam o polígono. Além disso, a classe espera que esses pontos estejam ordenados em [ordem anti-horária](https://www.geeksforgeeks.org/orientation-3-ordered-points/).
->
-></div>
+
+</div>
 
 ## Coloração com uma Busca em Profundidade no Grafo Dual
 
