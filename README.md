@@ -1,6 +1,6 @@
 # O Problema da Galeria de Artes
 
-Por Bernardo Dutra Lemos e Raphael Aroldo Carreiro Mendes
+### Bernardo Dutra Lemos e Raphael Aroldo Carreiro Mendes
 
 <div align="justify">
 
