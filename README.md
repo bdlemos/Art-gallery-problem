@@ -175,8 +175,6 @@ Por fim, a conclusão é que é possível economizar algumas câmeras que seriam
 
 </div>
 
-> Por Bernardo Dutra Lemos e Raphael Aroldo Carreiro Mendes
-
 # Requisitos
 
 <div align="justify">
@@ -189,4 +187,6 @@ Por fim, a conclusão é que é possível economizar algumas câmeras que seriam
 
 [^1]: Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein. Introduction to Algorithms, 3rd Edition. MIT Press, 2009. ISBN 978-0-262-03384-8.
 
+# Autores
 
+Bernardo Dutra Lemos e Raphael Aroldo Carreiro Mendes
