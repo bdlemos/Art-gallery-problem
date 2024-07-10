@@ -84,7 +84,9 @@ A importância desse teorema para nós? Podemos concluir diretamente, então, qu
 
 Esse algoritmo busca, de forma iterativa, triangular o polígono e 'podar' o triângulo gerado, sendo seu tempo de execução um tempo quadrático em função da entrada O(N<sup>2</sup>). Então, vamos definir que a orelha de um polígono é um triângulo, formado pelos vértices u, v e w, onde o segmento uw é uma diagonal do polígono. Para esse caso, nosso vértice v é a nossa ponta da orelha.
 
-Portanto, o primeiro passo do algoritmo passa a ser uma busca por pontas de orelha no polígono, isto é, se a reta formada pelos vértices V<sub>i-1</sub>-V<sub>i</sub>-V<sub>i+1</sub> vira a esquerda, definindo V<sub>i</sub> como a ponta da orelha, podendo ser executado em O(1), sem uso de ponto flutuante com alguns truques de geometria computacional. Depois, verificar se não tem nenhum vértice V<sub>k</sub> qualquer interno ao triângulo em questão, também feito em tempo constante com truques de geometria computacional. Essa etapa é feita linearmente em relação ao número de vértices do polígono, visto que buscamos pela ponta de orelha. 
+Portanto, o primeiro passo do algoritmo passa a ser uma busca por pontas de orelha no polígono, isto é, se a reta formada pelos vértices V<sub>i-1</sub>-V<sub>i</sub>-V<sub>i+1</sub> vira a esquerda, definindo V<sub>i</sub> como a ponta da orelha. Isso pode ser executado em O(1), sem uso de ponto flutuante com alguns truques de geometria computacional. 
+
+Depois, verificar se não tem nenhum vértice V<sub>k</sub> qualquer interno ao triângulo em questão, também feito em tempo constante com truques de geometria computacional. Essa etapa é feita linearmente em relação ao número de vértices do polígono, visto que buscamos pela ponta de orelha. 
 
 </div>
 
