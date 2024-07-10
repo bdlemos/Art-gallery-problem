@@ -113,7 +113,7 @@ A implementação do Algoritmo da Poda de Orelhas pode ser encontrada no present
 </div>
 
 > [!NOTE]
-> OBS: Algumas implementações mais elaboradas para triangulação de polígonos podem executar em O(N logN)
+> Algumas implementações mais elaboradas para triangulação de polígonos podem executar em O(N logN)
 
 <div align="justify">
 
