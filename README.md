@@ -49,7 +49,7 @@ As implementações para os algoritmos apresentados como solução nessa seção
 </div>
 
 > [!IMPORTANT]
-> <div align="justify"> Um Grafo Dual do polígono triangulado é um grafo onde todas as **faces** (nesse caso, triângulos), se tornam **vértices** e as **arestas** existem apenas entre 2 vértices caso suas respectivas faces tem um **lado em comum**, sendo esse lado uma **diagonal**, definida formalmente nas seções posteriores. </div>
+> <div align="justify"> Um Grafo Dual do polígono triangulado é um grafo onde todas as <b>faces</b> (nesse caso, triângulos), se tornam <b>vértices</b> e as <b>arestas</b> existem apenas entre 2 vértices caso suas respectivas faces tem um <b>lado em comum</b>, sendo esse lado uma <b>diagonal</b>, definida formalmente nas seções posteriores. </div>
 
 # Metodologia e Solução
 
