@@ -95,7 +95,7 @@ Depois, verificar se não tem nenhum vértice V<sub>k</sub> qualquer interno ao 
 
 <div align="justify">
 
-Por fim, o algoritmo repete esse processo, removendo as orelhas (triângulos) que encontra, atualiza seu polígono, apenas removendo o vértice que é a ponta da orelha, e tornando os outros 2 vértices adjacentes, até que o número de vértices seja menor ou igual à 3, sendo esse o último triângulo. Segue abaixo um gif mostrando a execução do algoritmo.
+Por fim, o algoritmo repete esse processo, removendo as orelhas (triângulos) que encontra, atualiza seu polígono, apenas removendo o vértice que é a ponta da orelha e tornando os outros 2 vértices adjacentes, até que o número de vértices seja menor ou igual à 3, restando o último triângulo. Segue abaixo um gif mostrando a execução do algoritmo.
 
 </div>
 
