@@ -113,7 +113,7 @@ A implementação do Algoritmo da Poda de Orelhas pode ser encontrada no present
 
 <div align="justify">
 
-A implementação em questão faz uso do paradigma orientado a objeto, criando um objeto que representa o polígono chamado de Polygon. Após criado, o objeto conta com métodos que plotam e exibem a animação de triângulação para o polígono em questão de forma interativa com o usuário, podendo este verificar os frames da execução manualmente para acompanhar o passo a passo.
+A implementação em questão faz uso do paradigma de orientação à objeto, criando um objeto que representa o polígono, chamado de Polygon. Após criado, o objeto conta com métodos que plotam e exibem a animação de triângulação para o polígono em questão de forma interativa com o usuário, podendo este verificar os frames da execução manualmente para acompanhar o passo a passo.
 
 </div>
 
@@ -156,7 +156,7 @@ Assim, o que estamos fazendo na prática, é executar uma Busca em Profundidade 
   
 A implementação da 3-Coloração pode ser encontrada no presente repositório, definida no arquivo Coloring.py, [aqui](https://github.com/bdlemos/Art-gallery-problem/blob/main/Coloring.py)!
 
-Bem como a implementação do algoritmo anterior, essa implementação foi realizada utilizando o paradigma de orientação a objeto, contando com uma classe Coloring. Essa classe espera receber um objeto do tipo Polygon em seu construtor, onde realiza automaticamente a coloração do polígono.
+Bem como a implementação do algoritmo anterior, essa implementação foi realizada utilizando o paradigma de orientação à objeto, contando com uma classe Coloring. Essa classe espera receber um objeto do tipo Polygon em seu construtor, onde realiza automaticamente a coloração do polígono.
 
 </div>
 
