@@ -31,3 +31,31 @@ img {
     background-color: #fff9e6;
     margin: 20px 0;
 }
+
+@media (max-width: 1200px) {
+    body {
+      margin: 50px 200px; /* Margem reduzida para telas médias */
+    }
+  }
+
+  @media (max-width: 768px) {
+    body {
+      margin: 50px 50px; /* Margem reduzida para tablets e dispositivos móveis */
+    }
+  }
+
+  @media (max-width: 480px) {
+    body {
+      margin: 20px; /* Margem mínima para dispositivos móveis pequenos */
+    }
+
+    .container {
+      padding: 15px; /* Reduzir o padding da container em dispositivos móveis pequenos */
+    }
+
+    .important {
+      padding-left: 5px;
+      padding-top: 5px;
+      font-size: 14px; /* Ajuste do tamanho da fonte para dispositivos móveis pequenos */
+    }
+    }
