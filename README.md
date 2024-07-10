@@ -1,7 +1,5 @@
 # O Problema da Galeria de Artes
 
-### Bernardo Dutra Lemos e Raphael Aroldo Carreiro Mendes
-
 <div align="justify">
 
 O presente repositório tem como objetivo explorar um problema clássico de geometria computacional: *O Problema da Galeria de Arte*. Isso será feito resolvendo o problema de forma interativa com o usuário, mostrando o passo a passo da execução do algoritmo e os resultados parciais de cada etapa da solução.
@@ -172,6 +170,10 @@ Bem como a implementação do algoritmo anterior, essa implementação foi reali
 Por fim, a conclusão é que é possível economizar algumas câmeras que seriam utilizadas, visto que agora nosso limiar para as câmeras utilizando os algoritmos acima é n/3, e o posicionamento das câmeras fica definido com base na coloração de cada vértice obtida na segunda etapa da solução propostas.
 
 </div>
+
+### Autores
+
+Bernardo Dutra Lemos e Raphael Aroldo Carreiro Mendes
 
 # Requisitos
 
